@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/picture",
+	"title": "Art-directed picture",
+	"category": "media",
+	"description": "A photograph with separate desktop and mobile crops, explicit dimensions and loading priority.",
+	"textdomain": "kesto",
+	"attributes": {
+		"desktopUrl": { "type": "string", "default": "" },
+		"desktopSrcset": { "type": "string", "default": "" },
+		"desktopWidth": { "type": "number", "default": 0 },
+		"desktopHeight": { "type": "number", "default": 0 },
+		"mobileUrl": { "type": "string", "default": "" },
+		"mobileSrcset": { "type": "string", "default": "" },
+		"mobileWidth": { "type": "number", "default": 0 },
+		"mobileHeight": { "type": "number", "default": 0 },
+		"sizes": { "type": "string", "default": "100vw" },
+		"alt": { "type": "string", "default": "" },
+		"focal": { "type": "string", "default": "50% 50%" },
+		"priority": { "type": "boolean", "default": false }
+	},
+	"supports": { "html": false, "className": true, "align": [ "wide", "full" ] },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

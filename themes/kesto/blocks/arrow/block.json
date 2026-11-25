@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/arrow",
+	"title": "Hand-drawn arrow",
+	"category": "design",
+	"description": "A decorative hand-drawn arrow or underline that draws itself when scrolled into view.",
+	"textdomain": "kesto",
+	"attributes": {
+		"variant": { "type": "string", "default": "hook", "enum": [ "hook", "loop", "swirl", "swoop", "scribble", "scribble-long", "curve-down" ] },
+		"color": { "type": "string", "default": "tomato", "enum": [ "tomato", "cream", "mango", "ink" ] },
+		"flip": { "type": "boolean", "default": false }
+	},
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

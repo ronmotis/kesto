@@ -1,0 +1,11 @@
+# Local WordPress runtime (recreate with bin/setup-local.sh)
+.local-site/
+# Build output (recreate with bin/package.sh)
+dist/
+node_modules/
+# Impeccable runtime dirs
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/build/
+.impeccable/config.local.json
+.DS_Store

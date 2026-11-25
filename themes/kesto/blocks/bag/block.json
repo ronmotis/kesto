@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/bag",
+	"title": "Bag link with live count",
+	"category": "theme",
+	"description": "Links to the WooCommerce cart and shows a live item count.",
+	"textdomain": "kesto",
+	"attributes": { "label": { "type": "string", "default": "Bag" } },
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

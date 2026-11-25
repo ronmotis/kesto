@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/social",
+	"title": "Verified social links",
+	"category": "theme",
+	"description": "Renders only the social links marked verified under KESTO → Claims & links.",
+	"textdomain": "kesto",
+	"attributes": {},
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

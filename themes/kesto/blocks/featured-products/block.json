@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/featured-products",
+	"title": "Featured snacks",
+	"category": "woocommerce",
+	"description": "Featured WooCommerce products as art-directed pouch tiles with add-to-bag. Mark products as Featured and set tile colour and food layer in the product's KESTO panel.",
+	"textdomain": "kesto",
+	"attributes": {
+		"count": { "type": "number", "default": 3 },
+		"showFootnote": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "className": true, "align": [ "wide", "full" ] },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

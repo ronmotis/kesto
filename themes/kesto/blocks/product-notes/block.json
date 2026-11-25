@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/product-notes",
+	"title": "Product notes (claims & biltong explainer)",
+	"category": "woocommerce",
+	"description": "On a product page: the product's tagline, the benefit claims that apply to it, demo-price flag and a short biltong explainer.",
+	"textdomain": "kesto",
+	"usesContext": [ "postId" ],
+	"attributes": {},
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

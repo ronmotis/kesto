@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/logo",
+	"title": "KESTO logo",
+	"category": "theme",
+	"description": "The KESTO horn mark and wordmark, linked home.",
+	"textdomain": "kesto",
+	"attributes": {
+		"color": { "type": "string", "default": "tomato" },
+		"link": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

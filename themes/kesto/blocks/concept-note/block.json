@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/concept-note",
+	"title": "Concept disclaimer",
+	"category": "theme",
+	"description": "Shows the concept disclaimer while KESTO → Claims → concept mode is on.",
+	"textdomain": "kesto",
+	"attributes": { "text": { "type": "string", "default": "Concept preview — product claims, sourcing, imagery, prices and font are pending verification." } },
+	"supports": { "html": false, "className": true },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

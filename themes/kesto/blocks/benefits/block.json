@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kesto/benefits",
+	"title": "Benefit strip",
+	"category": "theme",
+	"description": "Buyer benefits from KESTO → Claims, with verification status and product scope.",
+	"textdomain": "kesto",
+	"attributes": {},
+	"supports": { "html": false, "className": true, "align": [ "full" ] },
+	"editorScript": "kesto-blocks-editor",
+	"render": "file:./render.php"
+}

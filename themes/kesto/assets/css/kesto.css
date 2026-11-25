@@ -1,0 +1,800 @@
+/* ==========================================================================
+   KESTO — front-end + editor styles
+   Tokens come from theme.json (--wp--preset--*). Local aliases below.
+   ========================================================================== */
+
+:root {
+	--k-cream: var(--wp--preset--color--cream, #fbebd6);
+	--k-cream-deep: var(--wp--preset--color--cream-deep, #f4dcbb);
+	--k-tomato: var(--wp--preset--color--tomato, #a3120c);
+	--k-tomato-deep: var(--wp--preset--color--tomato-deep, #7e0d08);
+	--k-mango: var(--wp--preset--color--mango, #f5a511);
+	--k-mango-bright: var(--wp--preset--color--mango-bright, #fdb41d);
+	--k-leaf: var(--wp--preset--color--leaf, #2b4f0e);
+	--k-leaf-deep: var(--wp--preset--color--leaf-deep, #1f3a09);
+	--k-ink: var(--wp--preset--color--ink, #2a1710);
+	--k-white: var(--wp--preset--color--white, #fffdf9);
+	--k-display: var(--wp--preset--font-family--display);
+	--k-label: var(--wp--preset--font-family--label);
+	--k-ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--k-gutter: clamp(1rem, 4vw, 2.5rem);
+	--k-max: 1440px;
+	--k-radius: 12px;
+	--k-header-h: 4.5rem;
+}
+
+/* ---------- Browser surfaces ---------- */
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
+::selection { background: var(--k-mango); color: var(--k-tomato-deep); }
+:where(input, textarea, select) { caret-color: var(--k-tomato); accent-color: var(--k-tomato); }
+:where(a) { text-underline-offset: 0.18em; text-decoration-thickness: 0.08em; }
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--k-tomato);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+.kesto-story :where(a, button):focus-visible { outline-color: var(--k-mango-bright); }
+html { scrollbar-color: var(--k-tomato) var(--k-cream-deep); }
+img { max-width: 100%; height: auto; }
+.screen-reader-text:not(:focus):not(:active) {
+	clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; width: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap;
+}
+
+.skip-link.screen-reader-text:focus {
+	background: var(--k-tomato) !important; color: var(--k-cream) !important; border-radius: 6px;
+	font-family: var(--k-label); font-weight: 700; font-size: 1.1rem !important; text-decoration: none;
+	box-shadow: 0 10px 22px -12px rgba(66, 22, 6, 0.6);
+}
+
+/* Custom grids position their own children: cancel flow-layout block gaps inside them. */
+:is(.kesto-hero, .kesto-hero__media, .kesto-community, .kesto-community__media, .kesto-shop__inner, .kesto-story__stages, .kesto-footer__inner, .kesto-header__inner) > * { margin-block: 0 !important; }
+
+/* Remove block-gap between full-bleed home sections */
+.kesto-main { margin-block: 0 !important; }
+.kesto-home > * { margin-block: 0 !important; }
+.wp-site-blocks > * { margin-block-start: 0; }
+
+/* ---------- Display type ---------- */
+.kesto-display {
+	font-family: var(--k-display);
+	text-transform: uppercase;
+	color: var(--k-tomato);
+	line-height: 0.9;
+	letter-spacing: 0;
+	text-wrap: balance;
+	font-kerning: normal;
+}
+
+/* ---------- Buttons ---------- */
+.kesto-btn .wp-block-button__link,
+.kesto-add,
+.kesto-button {
+	display: inline-flex; align-items: center; gap: 0.5em;
+	min-height: 48px;
+	font-family: var(--k-label); font-weight: 700; font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.4rem);
+	line-height: 1; text-decoration: none;
+	border-radius: 8px;
+	padding: 0.7em 1.15em;
+	transition: background-color 0.2s var(--k-ease), transform 0.2s var(--k-ease), box-shadow 0.2s var(--k-ease);
+	box-shadow: 0 10px 22px -14px rgba(90, 20, 4, 0.55);
+}
+.kesto-btn--mango .wp-block-button__link { background: var(--k-mango); color: var(--k-tomato-deep); }
+.kesto-btn--mango .wp-block-button__link:hover { background: var(--k-mango-bright); color: var(--k-tomato-deep); }
+.kesto-btn--tomato .wp-block-button__link { background: var(--k-tomato); color: var(--k-cream); }
+.kesto-btn--tomato .wp-block-button__link:hover { background: var(--k-tomato-deep); color: var(--k-cream); }
+.kesto-btn--cream .wp-block-button__link { background: var(--k-cream); color: var(--k-leaf-deep); }
+.kesto-btn--cream .wp-block-button__link:hover { background: var(--k-white); color: var(--k-leaf-deep); }
+.kesto-btn .wp-block-button__link:active { transform: translateY(1px); }
+.kesto-btn--arrow .wp-block-button__link::after {
+	content: ""; width: 0.8em; height: 0.8em; flex: none;
+	background: currentColor;
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8 6h10v10'/%3E%3C/svg%3E") center / contain no-repeat;
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8 6h10v10'/%3E%3C/svg%3E") center / contain no-repeat;
+	transition: transform 0.25s var(--k-ease);
+}
+.kesto-btn--arrow .wp-block-button__link:is(:hover, :focus-visible)::after { transform: translate(2px, -2px); }
+
+/* ---------- Icons ---------- */
+.kesto-icon { width: 1.25em; height: 1.25em; flex: none; }
+
+/* ---------- Header ---------- */
+.kesto-header { background: var(--k-cream); position: relative; z-index: 20; }
+.kesto-header__inner {
+	max-width: var(--k-max); margin-inline: auto !important;
+	padding: 0.85rem var(--k-gutter);
+	min-height: var(--k-header-h);
+	gap: 1rem;
+}
+.kesto-header__end { gap: clamp(1rem, 2.2vw, 2.25rem); }
+.kesto-logo { display: inline-flex; color: var(--k-tomato); line-height: 0; }
+.kesto-logo svg { height: clamp(28px, 3vw, 44px); width: auto; display: block; }
+.kesto-logo.has-cream-color { color: var(--k-cream); }
+a.kesto-logo:hover { color: var(--k-tomato-deep); }
+
+.kesto-nav .wp-block-navigation__container { gap: clamp(1rem, 2.2vw, 2.25rem); }
+.kesto-nav .wp-block-navigation-item__content,
+.kesto-bag {
+	font-family: var(--k-label); font-weight: 700;
+	font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.3rem);
+	color: var(--k-tomato);
+	text-decoration: none;
+	padding-block: 0.4rem;
+	background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+	transition: background-size 0.3s var(--k-ease);
+}
+.kesto-nav .wp-block-navigation-item__content:is(:hover, :focus-visible),
+.kesto-nav .current-menu-item > .wp-block-navigation-item__content,
+.kesto-bag:is(:hover, :focus-visible) { background-size: 100% 2px; color: var(--k-tomato-deep); }
+.kesto-bag { display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap; min-height: 44px; }
+.kesto-bag .kesto-icon { display: none; }
+.kesto-bag.is-bumped .kesto-bag__count { animation: kesto-bump 0.5s var(--k-ease); }
+@keyframes kesto-bump { 40% { transform: scale(1.35); } }
+.kesto-bag__count { display: inline-block; }
+
+/* Mobile nav: core overlay restyled */
+.kesto-nav .wp-block-navigation__responsive-container-open,
+.kesto-nav .wp-block-navigation__responsive-container-close {
+	min-width: 44px; min-height: 44px; align-items: center; justify-content: center; color: var(--k-tomato);
+}
+.kesto-nav .wp-block-navigation__responsive-container-open svg { width: 30px; height: 30px; }
+.kesto-nav .wp-block-navigation__responsive-container.is-menu-open {
+	padding: 1.25rem var(--k-gutter) 2rem;
+}
+.kesto-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	padding-top: 4.5rem; align-items: flex-start;
+}
+.kesto-nav .is-menu-open .wp-block-navigation__container { gap: 0.6rem !important; align-items: flex-start; }
+.kesto-nav .is-menu-open .wp-block-navigation-item__content {
+	font-family: var(--k-display); text-transform: uppercase; font-weight: 400;
+	font-size: clamp(2.6rem, 11vw, 3.4rem); line-height: 1; padding: 0.15rem 0;
+}
+@media (min-width: 600px) and (max-width: 781px) {
+	.kesto-nav .is-menu-open .wp-block-navigation-item__content { font-size: 3.4rem; }
+}
+
+/* ---------- Hero ---------- */
+.kesto-hero {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 31fr) minmax(0, 69fr);
+	min-height: clamp(520px, 44vw, 720px);
+	background: var(--k-cream);
+	padding: 0 !important;
+	overflow: clip;
+}
+.kesto-hero__copy {
+	position: relative; z-index: 3;
+	align-self: center;
+	padding: clamp(1.5rem, 3vw, 3rem) 0 clamp(1.5rem, 3vw, 3rem) max(var(--k-gutter), calc((100vw - var(--k-max)) / 2 + var(--k-gutter)));
+	margin-right: -6vw; /* headline overlaps the photo's slanted edge */
+}
+.kesto-hero__title { position: relative; isolation: isolate; }
+.kesto-hero__headline { position: relative; z-index: 1; }
+.kesto-hero__headline {
+	font-size: clamp(3.4rem, 8.4vw, 9.25rem);
+	max-width: 5.2ch;
+	margin: 0;
+}
+.kesto-hero__underline {
+	--kh: clamp(3.4rem, 8.4vw, 9.25rem) * 0.9;
+	position: absolute; z-index: 0; left: 26%; width: min(62%, 15rem);
+	top: calc(var(--kh) * 2.74);
+}
+.kesto-hero__lede {
+	margin: clamp(1rem, 1.6vw, 1.5rem) 0 0;
+	font-size: clamp(1.05rem, 0.8rem + 0.6vw, 1.35rem);
+	font-weight: 600; line-height: 1.3; color: var(--k-ink);
+	max-width: 32ch;
+}
+.kesto-hero__cta { position: relative; margin-top: clamp(1.1rem, 2vw, 1.75rem); display: inline-block; }
+.kesto-hero__arrow {
+	position: absolute; left: calc(100% + 0.25rem); bottom: 30%;
+	width: clamp(64px, 7vw, 112px);
+}
+.kesto-hero__media { position: relative; z-index: 1; min-height: 100%; }
+.kesto-hero__photo, .kesto-hero__photo img {
+	position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.kesto-hero__photo {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 13% 100%);
+	background: var(--k-cream-deep);
+}
+.kesto-hero__pouch { position: absolute; z-index: 2; display: block; filter: drop-shadow(0 18px 18px rgba(40, 10, 0, 0.35)); }
+.kesto-hero__pouch img { display: block; width: 100%; height: auto; }
+.kesto-hero__pouch--a { width: 14.5%; right: 15.5%; bottom: 3%; transform: rotate(-5deg); }
+.kesto-hero__pouch--b { width: 14%; right: 2.5%; bottom: 1.5%; transform: rotate(6deg); }
+.kesto-hero__note {
+	position: absolute; z-index: 2; right: 30%; top: 46%;
+	margin: 0;
+	font-family: var(--k-display); text-transform: uppercase;
+	color: var(--k-white);
+	font-size: clamp(1.6rem, 2.7vw, 2.9rem); line-height: 0.9;
+	transform: rotate(-8deg);
+	max-width: 5.5ch; text-align: center;
+	text-shadow: 0 2px 14px rgba(60, 15, 0, 0.55);
+}
+.kesto-hero__note-arrow {
+	position: absolute; z-index: 2; right: 30.5%; top: 60%; width: clamp(34px, 3.2vw, 52px);
+	transform: rotate(10deg); filter: drop-shadow(0 2px 6px rgba(60, 15, 0, 0.5));
+}
+
+/* ---------- Arrows ---------- */
+.kesto-arrow { display: block; line-height: 0; pointer-events: none; }
+.kesto-arrow svg { width: 100%; height: auto; overflow: visible; display: block; }
+.kesto-arrow path { stroke-width: 3.4; }
+.kesto-arrow--scribble path, .kesto-arrow--scribble-long path { stroke-width: 5.5; }
+.kesto-arrow.is-flipped svg { transform: scaleX(-1); }
+.kesto-arrow.has-tomato-color { color: var(--k-tomato); }
+.kesto-arrow.has-cream-color { color: var(--k-cream); }
+.kesto-arrow.has-mango-color { color: var(--k-mango); }
+.kesto-arrow.has-ink-color { color: var(--k-ink); }
+
+/* ---------- Benefit strip ---------- */
+.kesto-benefits {
+	background: var(--k-mango);
+	color: var(--k-tomato-deep);
+	padding: 0.9rem var(--k-gutter) !important;
+	position: relative; z-index: 4;
+}
+.kesto-benefits__list {
+	list-style: none; margin: 0 auto; padding: 0; max-width: var(--k-max);
+	display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.kesto-benefits__item {
+	display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+	font-family: var(--k-label); font-weight: 700; text-transform: uppercase;
+	font-size: clamp(1rem, 0.75rem + 0.85vw, 1.55rem); letter-spacing: 0.01em; line-height: 1.05;
+	padding: 0.35rem 0.75rem;
+	color: var(--k-ink);
+}
+.kesto-benefits__item + .kesto-benefits__item { border-left: 2px solid rgba(126, 13, 8, 0.35); }
+.kesto-benefits__item .kesto-icon { width: 1.45em; height: 1.45em; stroke-width: 1.9; color: var(--k-ink); }
+.kesto-benefits__mark { font-size: 0.6em; margin-left: 0.1em; color: var(--k-tomato-deep); }
+.kesto-benefits__status {
+	margin: 0.35rem auto 0; max-width: var(--k-max); text-align: right;
+	font-size: 0.8125rem; font-weight: 600; color: var(--k-tomato-deep); letter-spacing: 0.02em;
+}
+
+/* ---------- Shop ---------- */
+.kesto-shop { background: var(--k-cream); padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(2rem, 3vw, 3rem) !important; }
+.kesto-shop__inner {
+	max-width: var(--k-max); margin-inline: auto !important; padding-inline: var(--k-gutter);
+	display: grid; grid-template-columns: minmax(0, 27fr) minmax(0, 73fr); gap: clamp(1.25rem, 2.4vw, 2.5rem); align-items: center;
+}
+.kesto-shop__intro { position: relative; align-self: start; padding-top: 0.5rem; }
+.kesto-shop__headline { font-size: clamp(2.8rem, 5.1vw, 5.9rem); margin: 0; max-width: 9.4ch; text-wrap: wrap; }
+.kesto-shop__underline { width: 70%; margin: -0.1em 0 0 -0.1em !important; }
+.kesto-shop__arrow { position: absolute; z-index: 2; width: clamp(90px, 8.5vw, 140px); right: -1.25rem; bottom: -3.75rem; }
+.kesto-shop__range { text-align: center; margin: clamp(1.5rem, 2.5vw, 2.25rem) auto 0 !important; }
+.kesto-shop__range a {
+	font-family: var(--k-label); font-weight: 700; font-size: 1.15rem; color: var(--k-tomato);
+}
+
+.kesto-products { position: relative; }
+.kesto-products__list {
+	list-style: none; padding: 0; margin: 0;
+	display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.75rem, 1.4vw, 1.25rem);
+}
+.kesto-product { position: relative; text-align: center; margin: 0; }
+.kesto-product__media {
+	position: relative; display: grid; place-items: end center;
+	aspect-ratio: 0.9;
+	border-radius: var(--k-radius);
+	overflow: hidden;
+	background: var(--tile, var(--k-cream-deep));
+	isolation: isolate;
+}
+.kesto-product--orange { --tile: #f68700; --tile-hi: #ffb347; }
+.kesto-product--red { --tile: #bd1c17; --tile-hi: #ec4a34; }
+.kesto-product--cream { --tile: #f6d7ae; --tile-hi: #fff1dc; }
+.kesto-product__media::before { /* soft sun pool behind the pouch */
+	content: ""; position: absolute; inset: 0; z-index: -1;
+	background: radial-gradient(60% 55% at 50% 38%, var(--tile-hi), transparent 70%);
+	opacity: 0.85;
+}
+.kesto-product__pouch {
+	width: 56%; height: auto; margin-bottom: 12%;
+	filter: drop-shadow(0 16px 16px rgba(40, 10, 0, 0.35));
+	transition: transform 0.45s var(--k-ease);
+}
+.kesto-product__food {
+	position: absolute; width: 50%; height: auto; bottom: -4%; left: 50%; translate: -2% 0;
+	filter: drop-shadow(0 8px 10px rgba(40, 10, 0, 0.3));
+	transition: transform 0.45s var(--k-ease);
+}
+.kesto-product:hover .kesto-product__pouch,
+.kesto-product:focus-within .kesto-product__pouch { transform: translateY(-6px) rotate(-1.5deg); }
+.kesto-product:hover .kesto-product__food,
+.kesto-product:focus-within .kesto-product__food { transform: translateX(4px); }
+.kesto-product__pending {
+	align-self: center; display: grid; gap: 0.5rem; justify-items: center;
+	font-family: var(--k-label); font-weight: 700; color: var(--k-tomato-deep);
+}
+.kesto-product__pending .kesto-icon { width: 3rem; height: 3rem; }
+.kesto-product__name {
+	font-family: var(--k-label); text-transform: none; font-weight: 700;
+	font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.5rem); line-height: 1.15;
+	color: var(--k-ink); margin: 0.85rem 0 0.15rem;
+}
+.kesto-product__name a { color: inherit; text-decoration: none; }
+.kesto-product__name a::after { content: ""; position: absolute; inset: 0 0 auto; aspect-ratio: 0.9; } /* whole tile clickable */
+.kesto-product__meta { margin: 0; font-size: 0.95rem; color: #5a3a2c; display: grid; justify-items: center; gap: 0.1rem; }
+.kesto-product__price { font-weight: 600; color: var(--k-ink); }
+.kesto-demo {
+	text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+	background: var(--k-cream-deep); color: var(--k-tomato-deep); border-radius: 4px; padding: 0.1rem 0.35rem; vertical-align: 0.1em;
+}
+.kesto-product__actions {
+	display: flex; justify-content: center; align-items: center; gap: 0.5rem 1rem; flex-wrap: wrap;
+	margin-top: 0.6rem; position: relative; z-index: 2;
+}
+.kesto-product__shop {
+	display: inline-flex; align-items: center; gap: 0.2rem; min-height: 44px;
+	font-family: var(--k-label); font-weight: 700; font-size: 1.15rem; color: var(--k-tomato); text-decoration: none;
+}
+.kesto-product__shop .kesto-icon { width: 1em; height: 1em; stroke-width: 2.6; transition: transform 0.25s var(--k-ease); }
+.kesto-product__shop:is(:hover, :focus-visible) .kesto-icon { transform: translate(2px, -2px); }
+.kesto-product__shop:is(:hover, :focus-visible) { text-decoration: underline; }
+.kesto-add {
+	font-size: 1rem; min-height: 44px; padding: 0.5em 0.85em;
+	background: transparent; color: var(--k-tomato); border: 2px solid currentColor; cursor: pointer; box-shadow: none;
+}
+.kesto-add:hover { background: var(--k-tomato); color: var(--k-cream); }
+.kesto-add .kesto-icon { width: 1.05em; height: 1.05em; stroke-width: 2.6; }
+.kesto-add[aria-busy="true"] { opacity: 0.75; cursor: progress; }
+.kesto-add.is-added { background: var(--k-leaf); border-color: var(--k-leaf); color: var(--k-cream); }
+.kesto-add.is-error { background: var(--k-tomato-deep); border-color: var(--k-tomato-deep); color: var(--k-cream); }
+.kesto-products__note {
+	display: flex; align-items: center; gap: 1rem; justify-content: center; flex-wrap: wrap;
+	margin: clamp(1.25rem, 2vw, 1.75rem) 0 0; font-size: 0.9rem; color: var(--k-ink);
+}
+.kesto-products__note::before, .kesto-products__note::after {
+	content: ""; flex: 1 1 3rem; max-width: 22rem; height: 2px; background: var(--k-tomato); opacity: 0.8;
+}
+.kesto-products__note span + span::before { content: "·"; margin-right: 0.6rem; }
+
+/* ---------- Story (green) ---------- */
+.kesto-story {
+	background: var(--k-leaf);
+	background-image: radial-gradient(120% 90% at 50% 0%, #366214 0%, var(--k-leaf) 55%, var(--k-leaf-deep) 100%);
+	color: var(--k-cream);
+	padding: clamp(2.75rem, 5vw, 4.75rem) var(--k-gutter) clamp(2.75rem, 5vw, 4.5rem) !important;
+}
+.kesto-story__headline {
+	color: var(--k-cream) !important;
+	font-size: clamp(2.9rem, 6.2vw, 6.9rem);
+	margin: 0 auto !important; max-width: none; text-wrap: wrap;
+}
+@media (min-width: 1180px) {
+	.kesto-story__headline { font-size: clamp(4rem, 5.2vw, 6.4rem); }
+	.kesto-story__headline br { display: none; }
+}
+.kesto-story__intro {
+	max-width: 56ch; margin: clamp(1rem, 1.6vw, 1.5rem) auto 0 !important;
+	font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.35rem); line-height: 1.45; color: #f6e5cc;
+}
+.kesto-story__intro strong { color: var(--k-mango-bright); font-weight: 700; }
+.kesto-story__stages {
+	max-width: var(--k-max); margin: clamp(2rem, 3.5vw, 3rem) auto 0 !important;
+	display: grid; grid-template-columns: minmax(0, 1fr) clamp(40px, 5vw, 80px) minmax(0, 1fr) clamp(40px, 5vw, 80px) minmax(0, 1fr);
+	align-items: start;
+}
+.kesto-stage { margin: 0; text-align: center; }
+.kesto-stage__photo {
+	display: block; background: var(--k-cream); padding: 6px; border-radius: 10px;
+	box-shadow: 0 18px 32px -18px rgba(0, 0, 0, 0.55);
+}
+.kesto-stage__photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; }
+.kesto-stage:nth-child(1) .kesto-stage__photo { rotate: -1.2deg; }
+.kesto-stage:nth-child(3) .kesto-stage__photo { rotate: 0.8deg; }
+.kesto-stage:nth-child(5) .kesto-stage__photo { rotate: -0.6deg; }
+.kesto-stage__label {
+	font-family: var(--k-label); font-weight: 700; font-size: clamp(1.3rem, 1rem + 0.9vw, 1.85rem);
+	margin: 1rem 0 0.1rem !important; color: var(--k-cream);
+}
+.kesto-stage__text { margin: 0 !important; color: #e9d8bd; font-size: 1rem; }
+.kesto-story__arrow { align-self: center; margin-top: -2.5rem !important; }
+.kesto-story__cta { margin-top: clamp(1.75rem, 3vw, 2.5rem) !important; }
+
+/* ---------- Community (mango) ---------- */
+.kesto-community {
+	position: relative;
+	display: grid; grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+	min-height: clamp(380px, 29vw, 520px);
+	background: var(--k-mango-bright);
+	background-image: radial-gradient(90% 120% at 0% 0%, #ffc43d 0%, var(--k-mango-bright) 50%, var(--k-mango) 100%);
+	padding: 0 !important; overflow: clip;
+}
+.kesto-community__copy {
+	position: relative; z-index: 3; align-self: center;
+	padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2rem, 4vw, 3.5rem) max(var(--k-gutter), calc((100vw - var(--k-max)) / 2 + var(--k-gutter)));
+}
+.kesto-community__title { position: relative; }
+.kesto-community__headline { font-size: clamp(2.6rem, 4.7vw, 5.6rem); margin: 0; max-width: 12.6ch; text-wrap: wrap; }
+.kesto-community__underline { width: 34%; margin: -0.12em 0 0 0 !important; }
+.kesto-community__cta { position: relative; display: inline-block; margin-top: clamp(1rem, 1.8vw, 1.5rem); }
+.kesto-community__arrow { position: absolute; left: calc(100% + 0.4rem); top: -10%; width: clamp(64px, 6.5vw, 104px); }
+.kesto-community__media { position: relative; z-index: 1; }
+.kesto-community__photo, .kesto-community__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.kesto-community__photo { clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%); }
+.kesto-community__pouch { position: absolute; z-index: 2; display: block; filter: drop-shadow(0 18px 18px rgba(40, 10, 0, 0.35)); }
+.kesto-community__pouch img { display: block; width: 100%; height: auto; }
+.kesto-community__pouch--a { width: 17%; left: 1%; top: 12%; transform: rotate(-7deg); }
+.kesto-community__pouch--b { width: 16%; right: 9%; top: 18%; transform: rotate(8deg); }
+
+/* ---------- Footer ---------- */
+.kesto-footer { background: var(--k-cream); border-top: 3px solid var(--k-tomato); }
+.kesto-footer__inner {
+	max-width: var(--k-max); margin-inline: auto !important;
+	padding: clamp(1.75rem, 3vw, 2.5rem) var(--k-gutter) 1.75rem;
+	display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem clamp(1.5rem, 3vw, 3rem);
+}
+.kesto-footer__logo svg { height: clamp(36px, 4.4vw, 62px); }
+nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: clamp(1rem, 3vw, 2.5rem); }
+.kesto-footer__nav .wp-block-navigation__container { gap: 0.3rem clamp(1rem, 2.4vw, 2.25rem); }
+.kesto-footer__nav .wp-block-navigation-item__content {
+	font-family: var(--k-label); font-weight: 700; font-size: 1.15rem; color: var(--k-tomato); text-decoration: none; padding-block: 0.6rem; display: inline-block;
+}
+.kesto-footer__nav .wp-block-navigation-item__content:is(:hover, :focus-visible) { text-decoration: underline; }
+.kesto-social { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+.kesto-social a { font-family: var(--k-label); font-weight: 700; color: var(--k-tomato); }
+.kesto-concept-note {
+	margin: 0; font-size: 0.85rem; line-height: 1.35; color: var(--k-ink); max-width: 30ch;
+	padding-left: 1rem; border-left: 2px solid var(--k-tomato);
+}
+.kesto-footer__legal { grid-column: 1 / -1; margin: 0.25rem 0 0 !important; font-size: 0.85rem; color: #6b4a3a; }
+
+/* ---------- Generic pages ---------- */
+.kesto-page { padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem) !important; }
+.kesto-page :where(h1) { font-size: clamp(3rem, 7vw, 6rem); }
+.kesto-page :where(h2) { font-size: clamp(2.2rem, 4.5vw, 3.75rem); margin-top: 2.5rem; }
+.kesto-page :where(p, li) { max-width: 68ch; }
+.kesto-lede { font-size: clamp(1.2rem, 1rem + 0.7vw, 1.55rem); font-weight: 500; line-height: 1.4; }
+.kesto-pending {
+	background: var(--k-white); border: 2px dashed var(--k-mango); border-radius: var(--k-radius);
+	padding: 1.25rem 1.4rem; color: var(--k-ink);
+}
+.kesto-pending strong { color: var(--k-tomato); }
+.kesto-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; list-style: none; padding: 0; }
+.kesto-facts li { background: var(--k-white); border-radius: var(--k-radius); padding: 1.1rem 1.2rem; max-width: none; }
+.kesto-facts strong { display: block; font-family: var(--k-label); font-size: 1.2rem; color: var(--k-tomato); }
+
+/* ---------- Enquiry form ---------- */
+.kesto-form { display: grid; gap: 1rem; max-width: 40rem; }
+.kesto-form__row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.kesto-field { display: grid; gap: 0.35rem; }
+.kesto-field label { font-family: var(--k-label); font-weight: 700; font-size: 1.05rem; color: var(--k-ink); }
+.kesto-field .kesto-req { color: var(--k-tomato); }
+.kesto-field :is(input, textarea, select) {
+	font: inherit; color: var(--k-ink); background: var(--k-white);
+	border: 2px solid #c9a27f; border-radius: 8px; padding: 0.7rem 0.85rem; min-height: 48px; width: 100%; box-sizing: border-box;
+}
+.kesto-field :is(input, textarea, select):focus { border-color: var(--k-tomato); outline: 3px solid rgba(163, 18, 12, 0.25); outline-offset: 0; }
+.kesto-field [aria-invalid="true"] { border-color: var(--k-tomato); background: #fff4ef; }
+.kesto-field__error { color: var(--k-tomato); font-weight: 600; font-size: 0.95rem; margin: 0; }
+.kesto-field__hint { color: #6b4a3a; font-size: 0.9rem; margin: 0; }
+.kesto-form__hp { position: absolute; left: -9999px; }
+.kesto-form button[type="submit"] { justify-self: start; background: var(--k-tomato); color: var(--k-cream); border: 0; cursor: pointer; }
+.kesto-form button[type="submit"]:hover { background: var(--k-tomato-deep); }
+.kesto-form button[aria-busy="true"] { opacity: 0.7; cursor: progress; }
+.kesto-form__status { margin: 0; padding: 0.9rem 1.1rem; border-radius: 8px; font-weight: 600; }
+.kesto-form__status:empty { display: none; }
+.kesto-form__status.is-success { background: #e4efd6; color: var(--k-leaf-deep); }
+.kesto-form__status.is-error { background: #fbe1da; color: var(--k-tomato-deep); }
+
+/* ==========================================================================
+   Motion. Default state is fully visible; hidden start states only apply
+   under html.kesto-motion (set before paint when motion is allowed and
+   IntersectionObserver exists). kesto-revealed is a 4s safety net.
+   ========================================================================== */
+.kesto-arrow path { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.kesto-motion:not(.kesto-revealed) .kesto-arrow:not(.is-inview) path { stroke-dashoffset: 1; }
+.kesto-motion .kesto-arrow.is-inview path {
+	animation: kesto-draw 0.9s var(--k-ease) both;
+	animation-delay: calc(0.25s + var(--i, 0) * 0.45s);
+}
+@keyframes kesto-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* Hero CTA arrow nudges toward the button on hover / keyboard focus */
+.kesto-hero__arrow svg, .kesto-community__arrow svg { transition: transform 0.35s var(--k-ease); }
+.kesto-hero__cta:has(a:is(:hover, :focus-visible)) .kesto-hero__arrow svg { transform: translate(-7px, 3px); }
+.kesto-community__cta:has(a:is(:hover, :focus-visible)) .kesto-community__arrow svg { transform: translate(-7px, 2px); }
+
+@media (prefers-reduced-motion: no-preference) {
+	/* Hero photo: one restrained mask reveal along its slanted edge. */
+	.kesto-motion .kesto-hero__photo { animation: kesto-mask 1.1s 0.1s var(--k-ease) both; }
+	@keyframes kesto-mask {
+		from { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+		to { clip-path: polygon(0 0, 100% 0, 100% 100%, 13% 100%); }
+	}
+	.kesto-motion .kesto-hero__pouch { animation: kesto-rise 0.9s var(--k-ease) both; }
+	.kesto-motion .kesto-hero__pouch--a { animation-delay: 0.55s; }
+	.kesto-motion .kesto-hero__pouch--b { animation-delay: 0.7s; }
+	.kesto-motion .kesto-hero__note { animation: kesto-fade 0.6s 1.1s var(--k-ease) both; }
+	@keyframes kesto-rise { from { opacity: 0; translate: 0 40px; } }
+	@keyframes kesto-fade { from { opacity: 0; } }
+	.kesto-motion .kesto-hero__copy > * { animation: kesto-up 0.8s var(--k-ease) both; }
+	.kesto-motion .kesto-hero__copy > :nth-child(2) { animation-delay: 0.12s; }
+	.kesto-motion .kesto-hero__copy > :nth-child(3) { animation-delay: 0.22s; }
+	@keyframes kesto-up { from { opacity: 0; translate: 0 18px; } }
+
+	/* Story photos enter in sequence as the green band arrives. */
+	.kesto-motion:not(.kesto-revealed) .kesto-story:not(.is-inview) .kesto-stage { opacity: 0; translate: 0 28px; }
+	.kesto-motion .kesto-story .kesto-stage { transition: opacity 0.7s var(--k-ease), translate 0.8s var(--k-ease); }
+	.kesto-motion .kesto-story.is-inview .kesto-stage:nth-child(3) { transition-delay: 0.14s; }
+	.kesto-motion .kesto-story.is-inview .kesto-stage:nth-child(5) { transition-delay: 0.28s; }
+
+	/* Product tiles settle in. */
+	.kesto-motion:not(.kesto-revealed) .kesto-products:not(.is-inview) .kesto-product { opacity: 0; translate: 0 24px; }
+	.kesto-motion .kesto-product { transition: opacity 0.6s var(--k-ease), translate 0.7s var(--k-ease); transition-delay: calc(var(--i, 0) * 0.08s); }
+
+	/* Subtle depth on independent product layers (driven by kesto.js). */
+	.kesto-depth { translate: 0 calc(var(--depth, 0) * 1px); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.kesto-arrow path { stroke-dashoffset: 0 !important; animation: none !important; }
+	*, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1100px) {
+	.kesto-shop__inner { grid-template-columns: 1fr; }
+	.kesto-shop__intro { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 1.5rem; }
+	.kesto-shop__headline { max-width: none; }
+	.kesto-shop__underline { width: min(60%, 22rem); order: 3; flex-basis: 100%; }
+	.kesto-shop__arrow { position: relative; right: auto; bottom: auto; width: 90px; rotate: 30deg; }
+	.kesto-footer__inner { grid-template-columns: auto 1fr; }
+	.kesto-concept-note { grid-column: 1 / -1; max-width: none; }
+}
+
+@media (max-width: 781px) {
+	:root { --k-header-h: 3.75rem; }
+	.kesto-header__inner { padding-block: 0.5rem; }
+	.kesto-bag { font-size: 1.05rem; }
+
+	.kesto-hero { min-height: 440px; }
+	.kesto-hero__lede { font-size: 1rem; }
+	.kesto-hero__arrow { width: 56px; }
+
+	.kesto-benefits { padding-block: 0.5rem !important; }
+	.kesto-benefits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.kesto-benefits__item { justify-content: flex-start; font-size: 1rem; padding: 0.55rem 0.25rem; }
+	.kesto-benefits__item + .kesto-benefits__item { border-left: 0; }
+	.kesto-benefits__status { text-align: left; }
+
+	.kesto-shop__headline { font-size: clamp(2.6rem, 12vw, 4.4rem); max-width: 9.4ch; }
+	.kesto-shop__arrow { display: none; }
+}
+@media (max-width: 599px) {
+	/* Products: native horizontal scroll with snap, one and a half tiles visible. */
+	.kesto-products__list {
+		grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%;
+		overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+		margin-inline: calc(var(--k-gutter) * -1); padding: 0 var(--k-gutter) 0.75rem;
+		scroll-padding-inline: var(--k-gutter); scrollbar-width: thin;
+	}
+	.kesto-product { scroll-snap-align: start; }
+	.kesto-products__note { flex-direction: column; gap: 0.25rem; }
+	.kesto-products__note::before, .kesto-products__note::after, .kesto-products__note span + span::before { display: none; }
+
+	.kesto-story__stages { grid-template-columns: 1fr; gap: 0; max-width: 30rem; }
+	.kesto-story__arrow { width: 70px; margin: 0.5rem auto !important; rotate: 90deg; }
+	.kesto-community__media { aspect-ratio: 1; }
+	.kesto-community__pouch--a { width: 30%; }
+	.kesto-community__pouch--b { width: 28%; }
+}
+@media (max-width: 781px) {
+
+	.kesto-community { grid-template-columns: 1fr; }
+	.kesto-community__copy { padding: 2.25rem var(--k-gutter) 1.75rem; }
+	.kesto-community__headline { font-size: clamp(2.8rem, 12.5vw, 4.4rem); }
+	.kesto-community__media { aspect-ratio: 16 / 9; }
+	.kesto-community__pouch--a, .kesto-community__pouch--b { width: 20%; }
+	.kesto-community__photo { clip-path: none; }
+	.kesto-community__pouch--a { width: 30%; left: 4%; top: auto; bottom: 6%; }
+	.kesto-community__pouch--b { width: 28%; right: 5%; top: 8%; }
+	.kesto-community__arrow { top: -40%; width: 70px; }
+
+	.kesto-footer__inner { grid-template-columns: 1fr; }
+	nav.kesto-footer__nav { border-left: 0; padding-left: 0; }
+}
+
+@media (max-width: 599px) {
+	/* Phone: bag stays visible beside the menu button. */
+	.kesto-header__end { gap: 0.5rem; flex-direction: row-reverse; }
+
+	.kesto-hero { grid-template-columns: 1fr; min-height: 0; }
+	.kesto-hero__copy { padding: 1.25rem var(--k-gutter) 1.5rem; margin: 0; }
+	.kesto-hero__headline { font-size: clamp(3.1rem, 14.2vw, 5.5rem); max-width: 10.5ch; text-wrap: wrap; }
+	.kesto-hero__underline { --kh: clamp(3.1rem, 14.2vw, 5.5rem) * 0.9; top: calc(var(--kh) * 1.5); left: 8%; width: 50%; }
+	.kesto-hero__lede { max-width: none; font-size: 1.05rem; }
+	.kesto-hero__arrow { left: calc(100% + 0.5rem); bottom: 20%; width: 76px; }
+	.kesto-hero__media { aspect-ratio: 1 / 1.02; min-height: 0; }
+	.kesto-hero__photo { clip-path: none; }
+	.kesto-hero__pouch--a { width: 28%; right: 33%; bottom: -4%; }
+	.kesto-hero__pouch--b { width: 27%; right: 4%; bottom: -6%; }
+	.kesto-hero__note { right: auto; left: 4%; top: 5%; font-size: 1.55rem; }
+	.kesto-hero__note-arrow { display: none; }
+	@media (prefers-reduced-motion: no-preference) {
+		.kesto-motion .kesto-hero__photo { animation-name: kesto-mask-m; }
+		@keyframes kesto-mask-m { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0); } }
+	}
+}
+
+@media (min-width: 1700px) {
+	.kesto-hero { min-height: 760px; }
+}
+
+/* ==========================================================================
+   Content pages (story template)
+   ========================================================================== */
+.kesto-story-page > .wp-block-post-content > * { margin-block: 0; }
+.kesto-explainer { padding-block: clamp(2rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem) !important; }
+.kesto-explainer--end { padding-top: clamp(2.5rem, 5vw, 4rem) !important; }
+.kesto-explainer h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); margin-bottom: 0.25em; }
+.kesto-explainer h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); margin-top: clamp(2rem, 4vw, 3rem); margin-bottom: 0.4em; }
+.kesto-explainer .kesto-facts { margin-block: 1.5rem 0.5rem; }
+.kesto-story--page { margin-block: 0 !important; }
+.kesto-btn--text .wp-block-button__link {
+	background: transparent; color: var(--k-tomato); box-shadow: none; padding-inline: 0.4em;
+	text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em;
+}
+.kesto-btn--text .wp-block-button__link:hover { color: var(--k-tomato-deep); background: transparent; }
+.kesto-form { max-width: none !important; margin-inline: 0 !important; margin-top: 2rem !important; }
+.kesto-pending + .kesto-pending { margin-top: 1rem; }
+
+/* ==========================================================================
+   WooCommerce — range (shop archive, related products)
+   ========================================================================== */
+.kesto-shop-page { padding-block: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem) !important; }
+.kesto-shop-page__head h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); margin: 0 0 0.3em; }
+.kesto-shop-page__head .kesto-lede { max-width: 56ch; margin: 0; }
+.kesto-shop-page__note { margin: 2.5rem 0 0 !important; max-width: none; }
+.kesto-range { margin-top: clamp(1.5rem, 3vw, 2.5rem) !important; }
+:is(.kesto-range, .kesto-related) .wc-block-product-template,
+.kesto-related .products-block-post-template { gap: clamp(0.9rem, 1.6vw, 1.5rem) !important; }
+:is(.kesto-range, .kesto-related) .wc-block-product,
+:is(.kesto-range, .kesto-related) .wp-block-post { text-align: center; }
+:is(.kesto-range, .kesto-related) .wc-block-components-product-image {
+	background: var(--tile, var(--k-cream-deep));
+	background-image: radial-gradient(60% 55% at 50% 38%, var(--tile-hi, #fff3df), transparent 70%);
+	border-radius: var(--k-radius); overflow: hidden; margin-bottom: 0.9rem !important;
+	aspect-ratio: 0.9; position: relative;
+}
+:is(.kesto-range, .kesto-related) .wc-block-components-product-image a { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+:is(.kesto-range, .kesto-related) .wc-block-components-product-image img {
+	width: 62% !important; height: auto !important; max-height: 86%; aspect-ratio: auto !important; object-fit: contain !important;
+	filter: drop-shadow(0 16px 16px rgba(40, 10, 0, 0.32)); transition: transform 0.45s var(--k-ease);
+}
+:is(.kesto-range, .kesto-related) .wc-block-components-product-image img[src*="placeholder-pouch"] { width: 100% !important; height: 100% !important; object-fit: cover !important; filter: none; }
+:is(.kesto-range, .kesto-related) li:is(:hover, :focus-within) .wc-block-components-product-image img:not([src*="placeholder"]) { transform: translateY(-6px) rotate(-1.5deg); }
+.kesto-tile--orange { --tile: #f68700; --tile-hi: #ffb347; }
+.kesto-tile--red { --tile: #bd1c17; --tile-hi: #ec4a34; }
+.kesto-tile--cream { --tile: #f6d7ae; --tile-hi: #fff1dc; }
+.kesto-range__name, .kesto-range__name a {
+	font-family: var(--k-label) !important; text-transform: none !important; font-weight: 700 !important;
+	font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.45rem) !important; line-height: 1.15 !important;
+	color: var(--k-ink) !important; text-decoration: none; margin: 0 0 0.2rem !important; letter-spacing: 0;
+}
+.kesto-range__name a:hover { text-decoration: underline; }
+:is(.kesto-range, .kesto-related) .wc-block-components-product-price { font-weight: 600; color: var(--k-ink); margin-bottom: 0.6rem !important; }
+.kesto-range__button .wp-block-button__link,
+.kesto-range__button .wc-block-components-product-button__button {
+	font-family: var(--k-label) !important; font-weight: 700 !important; font-size: 1rem !important;
+	background: transparent !important; color: var(--k-tomato) !important; border: 2px solid currentColor !important;
+	border-radius: 8px !important; min-height: 44px; padding: 0.5em 1em !important;
+}
+.kesto-range__button .wp-block-button__link:hover,
+.kesto-range__button .wc-block-components-product-button__button:hover { background: var(--k-tomato) !important; color: var(--k-cream) !important; }
+.wc-block-components-product-button .added_to_cart { font-family: var(--k-label); font-weight: 700; color: var(--k-tomato); margin-top: 0.4rem; display: inline-block; }
+
+/* ==========================================================================
+   WooCommerce — single product
+   ========================================================================== */
+.kesto-product-page { padding-block: 1rem clamp(3rem, 6vw, 5rem) !important; }
+.kesto-product-page .woocommerce-breadcrumb, .kesto-product-page .wc-block-breadcrumbs { font-size: 0.95rem; margin-bottom: 1rem !important; }
+.kesto-pdp { gap: clamp(1.5rem, 4vw, 4rem) !important; align-items: start !important; }
+.kesto-pdp__media .woocommerce-product-gallery__wrapper,
+.kesto-pdp__media .woocommerce-product-gallery__image { border-radius: var(--k-radius); }
+.kesto-pdp__media .woocommerce-product-gallery {
+	background: var(--tile, var(--k-cream-deep));
+	background-image: radial-gradient(60% 55% at 50% 40%, var(--tile-hi, #fff3df), transparent 70%);
+	border-radius: var(--k-radius); padding: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 6vw, 5rem);
+}
+.kesto-pdp__media .woocommerce-product-gallery img { filter: drop-shadow(0 22px 22px rgba(40, 10, 0, 0.35)); }
+.kesto-pdp__media .woocommerce-product-gallery__trigger { background: var(--k-cream); border-radius: 50%; }
+.kesto-pdp__title { font-size: clamp(3rem, 6vw, 5.5rem) !important; margin: 0 0 0.3em !important; }
+.kesto-pdp__price, .kesto-pdp__price .wc-block-components-product-price { font-family: var(--k-label); font-weight: 700; font-size: 1.75rem !important; color: var(--k-ink); }
+.kesto-pdp__excerpt { font-size: 1.15rem; line-height: 1.5; max-width: 46ch; }
+.kesto-pdp__cart form.cart { display: flex; gap: 0.75rem; align-items: stretch; flex-wrap: wrap; margin: 1.5rem 0 !important; }
+.kesto-pdp__cart .quantity input.qty {
+	width: 5rem; min-height: 52px; font: 600 1.1rem var(--wp--preset--font-family--body); text-align: center;
+	border: 2px solid #c9a27f; border-radius: 8px; background: var(--k-white); color: var(--k-ink);
+}
+.kesto-pdp__cart .single_add_to_cart_button {
+	min-height: 52px; padding: 0 1.6rem !important; border-radius: 8px !important; border: 0;
+	background: var(--k-mango) !important; color: var(--k-tomato-deep) !important;
+	font-family: var(--k-label) !important; font-weight: 700 !important; font-size: 1.3rem !important; cursor: pointer;
+	box-shadow: 0 10px 22px -14px rgba(90, 20, 4, 0.55);
+}
+.kesto-pdp__cart .single_add_to_cart_button:hover { background: var(--k-mango-bright) !important; }
+.kesto-pdp__cart .single_add_to_cart_button.loading { opacity: 0.7; }
+.kesto-notes { border-top: 2px solid var(--k-tomato); padding-top: 1.25rem; margin-top: 0.5rem; display: grid; gap: 0.9rem; }
+.kesto-notes p { margin: 0; }
+.kesto-notes__tagline { font-family: var(--k-label); font-weight: 700; font-size: 1.2rem; color: var(--k-tomato); }
+.kesto-notes__claims { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kesto-notes__claims li {
+	display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.75rem; border-radius: 999px;
+	background: var(--k-mango); color: var(--k-ink); font-family: var(--k-label); font-weight: 700; font-size: 1rem;
+}
+.kesto-notes__claims .kesto-icon { width: 1.15em; height: 1.15em; }
+.kesto-notes__concept { font-size: 0.9rem; color: var(--k-tomato-deep); font-weight: 600; }
+.kesto-notes__explain { background: var(--k-white); border-radius: var(--k-radius); padding: 1rem 1.2rem; display: grid; gap: 0.4rem; }
+.kesto-notes__explain a { font-family: var(--k-label); font-weight: 700; }
+.kesto-pdp__details { margin-top: clamp(2.5rem, 5vw, 4rem) !important; }
+.kesto-pdp__details .wc-tabs, .kesto-pdp__details .wc-block-product-details__tabs { border-bottom: 2px solid var(--k-tomato) !important; }
+.kesto-pdp__details .wc-tabs li a { font-family: var(--k-label); font-weight: 700; color: var(--k-tomato) !important; font-size: 1.15rem; }
+.kesto-pdp__details .wc-tab > h2:first-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.kesto-pdp__details .wc-tab { max-width: 68ch; }
+.kesto-related { margin-top: clamp(3rem, 6vw, 5rem) !important; }
+.kesto-related h2 { font-size: clamp(2.4rem, 5vw, 4.25rem); margin-bottom: 1.5rem; }
+
+/* ==========================================================================
+   WooCommerce — cart & checkout blocks
+   ========================================================================== */
+:is(.kesto-cart-page, .kesto-checkout-page) h1 { font-size: clamp(3rem, 7vw, 5.5rem); }
+.wc-block-cart, .wc-block-checkout { --k-field: var(--k-white); }
+.wc-block-cart .wc-block-cart-items th, .wc-block-components-totals-item__label { font-family: var(--k-label); font-weight: 700; }
+.wc-block-cart-item__image img { background: var(--k-cream-deep); border-radius: 8px; padding: 6px; }
+.wc-block-components-product-name { font-family: var(--k-label); font-weight: 700; font-size: 1.2rem; color: var(--k-ink) !important; text-decoration: none; }
+.wc-block-components-quantity-selector { border-color: #c9a27f !important; border-radius: 8px !important; background: var(--k-white); }
+.wc-block-components-quantity-selector__button { min-width: 40px; color: var(--k-tomato) !important; }
+.wc-block-cart-item__remove-link { color: var(--k-tomato) !important; font-weight: 600; }
+.wc-block-components-button:not(.is-link),
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+	background: var(--k-mango) !important; color: var(--k-tomato-deep) !important; border-radius: 8px !important;
+	font-family: var(--k-label) !important; font-weight: 700 !important; font-size: 1.25rem !important; min-height: 52px;
+	box-shadow: 0 10px 22px -14px rgba(90, 20, 4, 0.55);
+}
+.wc-block-components-button:not(.is-link):hover { background: var(--k-mango-bright) !important; }
+.wc-block-components-sidebar .wc-block-components-panel, .wc-block-components-totals-wrapper { border-color: rgba(163, 18, 12, 0.25) !important; }
+.wc-block-components-text-input input, .wc-block-components-text-input textarea,
+.wc-blocks-components-select .wc-blocks-components-select__select, .wc-block-components-combobox .wc-block-components-combobox-control input {
+	background: var(--k-white) !important; border-color: #c9a27f !important; border-radius: 8px !important; color: var(--k-ink) !important;
+}
+.wc-block-components-text-input.is-active input:focus, .wc-block-components-text-input input:focus { border-color: var(--k-tomato) !important; box-shadow: 0 0 0 2px rgba(163, 18, 12, 0.25) !important; }
+.wc-block-components-radio-control__input:checked { border-color: var(--k-tomato) !important; }
+.wc-block-components-radio-control__input:checked::before { background: var(--k-tomato) !important; }
+.wc-block-components-checkbox .wc-block-components-checkbox__input[type=checkbox]:checked { background: var(--k-tomato) !important; border-color: var(--k-tomato) !important; }
+.wc-block-components-title.wc-block-components-title, .wc-block-components-checkout-step__title {
+	font-family: var(--k-label) !important; font-weight: 700 !important; text-transform: none !important; color: var(--k-ink) !important; font-size: 1.4rem !important; line-height: 1.2 !important;
+}
+.wc-block-cart__empty-cart__title { font-family: var(--k-display) !important; color: var(--k-tomato); text-transform: uppercase; font-size: clamp(2.2rem, 5vw, 3.5rem) !important; }
+.wc-block-components-notice-banner.is-success { border-color: var(--k-leaf) !important; background: #e4efd6 !important; }
+.wc-block-components-notice-banner.is-error { border-color: var(--k-tomato) !important; background: #fbe1da !important; }
+.wp-block-woocommerce-empty-cart-block .wp-block-separator { color: var(--k-tomato); }
+
+@media (min-width: 1000px) {
+	.kesto-range .wc-block-product-template { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 781px) {
+	.kesto-pdp__media .woocommerce-product-gallery { padding: 1.5rem 3rem; }
+	:is(.kesto-range, .kesto-related) .wc-block-product-template { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+/* Order confirmation: section titles are labels, not posters. */
+:is(.wc-block-order-confirmation-totals-wrapper, .wc-block-order-confirmation-downloads-wrapper, .wc-block-order-confirmation-shipping-wrapper, .wc-block-order-confirmation-billing-wrapper, .wc-block-order-confirmation-additional-fields-wrapper) h2,
+.woocommerce-order h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem) !important; margin-bottom: 0.6rem !important; }
+.wc-block-order-confirmation-status { font-size: 1.15rem; }
+
+/* Layered art elements stay absolutely positioned in the block editor too
+   (the editor gives every block `position: relative`). */
+:is(.kesto-hero__pouch, .kesto-hero__note, .kesto-hero__note-arrow, .kesto-hero__arrow, .kesto-hero__underline,
+	.kesto-hero__photo, .kesto-community__photo, .kesto-community__pouch, .kesto-community__arrow, .kesto-shop__arrow) { position: absolute !important; }
+@media (max-width: 1100px) { .kesto-shop__arrow { position: relative !important; } }
+.editor-styles-wrapper .kesto-hero__media, .editor-styles-wrapper .kesto-community__media { min-height: 420px; }
+.kesto-hero__title, .kesto-community__title, .kesto-shop__intro, .kesto-hero__cta, .kesto-community__cta { position: relative !important; }

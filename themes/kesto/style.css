@@ -1,0 +1,17 @@
+/*
+Theme Name: KESTO
+Theme URI: https://github.com/ronmotis/kesto
+Description: Custom WooCommerce block theme for KESTO — Southern African biltong and snacks. Cream, tomato, mango and leaf-green; hand-drawn arrows; built from the approved homepage concept.
+Author: KESTO
+Version: 1.0.0
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 8.1
+License: Proprietary — all rights reserved
+Text Domain: kesto
+Tags: block-patterns, full-site-editing, e-commerce, custom-colors
+WC requires at least: 9.0
+WC tested up to: 11.3
+*/
+
+/* Styles live in theme.json and assets/css/kesto.css. */
