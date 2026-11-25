@@ -13,16 +13,18 @@ Every raster that ships in `themes/kesto/assets/images/` is built from a master 
 
 ## Generated for this build (concept imagery, replace with real photography)
 
-All generated on 2026-11-25 with fal.ai **Nano Banana 2.1 Edit** (`google/nano-banana-2.1/edit`, 2K). The matching crop of the approved comp was the composition reference. Each prompt asked for no packaging and no text; the real pouches are layered on separately in the page.
+**Current set (v2, 2026-11-25):** generated with **OpenAI GPT Image 2.6 Sunburst** (`openai/gpt-image-2.6/sunburst/text-to-image` via fal.ai, quality `max`), from text prompts only. Each prompt asked for unretouched documentary photography: film colour, real skin texture, no packaging and no text. The comp was a composition guide only; no comp pixels were used as input. The real pouches are layered on separately in the page.
 
 | Master | Prompt summary | Status |
 |---|---|---|
-| `generated/hero-master.jpg` | Woman laughing mid-bite at a sunny outdoor table, bowl of biltong, friends behind, gingham at right | Concept: replace with a real campaign shoot |
-| `generated/community-master.jpg` | Overhead shared table: biltong bowl, roasted corn & nut bowl, limes, hands reaching in | Concept |
-| `generated/story-source-master.jpg` | Cattle grazing on pasture, late light | Concept. **Not** a KESTO supplier or farm |
-| `generated/story-craft-master.jpg` | Hands slicing seasoned biltong on a board | Concept. Not KESTO's production |
-| `generated/story-company-master.jpg` | Friends passing a bowl of biltong | Concept |
-| `generated/food-biltong.webp`, `food-chilli.webp`, `food-trailmix.webp` | Food piles generated on white, then background-removed with `fal-ai/birefnet/v2` | Decorative layers |
+| `generated/hero-master.jpg` (3840×2160) | Woman laughing mid-bite of biltong at a backyard table, speckled bowl of biltong, iced lime water, gingham at right, friends behind | Concept: replace with a real campaign shoot |
+| `generated/community-master.jpg` (3840×1632) | Overhead shared table: biltong bowl, roasted corn & nut bowl, limes, three hands reaching in, gingham edges, left side clear | Concept |
+| `generated/story-source-master.jpg` | Reddish-brown cattle grazing, rolling hills, acacia-like trees, golden light | Concept. **Not** a KESTO supplier or farm |
+| `generated/story-craft-master.jpg` | Hands slicing seasoned biltong on a scarred wooden board | Concept. Not KESTO's production |
+| `generated/story-company-master.jpg` | Four friends laughing, one passing a bowl of biltong | Concept |
+| `generated/food-biltong.webp`, `food-chilli.webp`, `food-trailmix.webp` | Food piles generated directly on a transparent background | Decorative layers |
+
+The first set (v1, Nano Banana 2.1 Edit conditioned on comp crops) was replaced because it looked glossy and artificial; it is kept in `archive-v1/` for reference only and doesn't ship.
 
 ## Restored from supplied photography
 

@@ -74,7 +74,7 @@ $any_demo           = false;
 						<span class="kesto-product__pending"><?php echo kesto_icon( 'bag' ); // phpcs:ignore ?><span><?php esc_html_e( 'Packshot coming soon', 'kesto' ); ?></span></span>
 					<?php endif; ?>
 					<?php if ( $food && in_array( $food, array( 'biltong', 'chilli', 'trailmix' ), true ) ) : ?>
-						<img class="kesto-product__food" src="<?php echo esc_url( kesto_img( "food-{$food}-560.webp" ) ); ?>" srcset="<?php echo esc_attr( kesto_srcset( "food-{$food}", array( 320, 560 ) ) ); ?>" sizes="(max-width: 781px) 40vw, 12vw" alt="" width="560" height="<?php echo (int) ( array( 'biltong' => 324, 'chilli' => 327, 'trailmix' => 347 )[ $food ] ); ?>" loading="lazy" decoding="async">
+						<img class="kesto-product__food" src="<?php echo esc_url( kesto_img( "food-{$food}-560.webp" ) ); ?>" srcset="<?php echo esc_attr( kesto_srcset( "food-{$food}", array( 320, 560 ) ) ); ?>" sizes="(max-width: 781px) 40vw, 12vw" alt="" width="560" height="<?php echo (int) ( array( 'biltong' => 329, 'chilli' => 342, 'trailmix' => 340 )[ $food ] ); ?>" loading="lazy" decoding="async">
 					<?php endif; ?>
 				</a>
 				<h3 class="kesto-product__name"><a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( $name ); ?></a></h3>

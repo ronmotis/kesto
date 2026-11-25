@@ -45,8 +45,8 @@ def photo(src, name, ratio, focus, widths):
 
 
 # Hero: desktop wide (woman left-centre, table/gingham right), mobile 4:5 on woman + bowl.
-photo("hero-master.jpg", "hero-desktop", 16 / 9, (0.5, 0.5), [960, 1440, 1920, 2560])
-photo("hero-master.jpg", "hero-mobile", 4 / 5, (0.47, 0.5), [480, 800, 1200])
+photo("hero-master.jpg", "hero-desktop", 16 / 9, (0.42, 0.5), [960, 1440, 1920, 2560])
+photo("hero-master.jpg", "hero-mobile", 4 / 5, (0.36, 0.5), [480, 800, 1200])
 
 # Community overhead: wide desktop, mobile square crop on bowls + hands.
 photo("community-master.jpg", "community-desktop", 2.35, (0.5, 0.5), [960, 1600, 2400])
