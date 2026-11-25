@@ -20,7 +20,17 @@ $provisional = array_filter( $claims, static fn( $c ) => 'verified' !== ( $c['st
 			</li>
 		<?php endforeach; ?>
 	</ul>
-	<?php if ( $provisional && kesto_concept_mode() ) : ?>
-		<p class="kesto-benefits__status"><?php esc_html_e( 'Concept claims — pending verification', 'kesto' ); ?></p>
+	<?php
+	$has_beef_scope = (bool) array_filter( $claims, static fn( $c ) => 'biltong' === ( $c['scope'] ?? '' ) );
+	$notes          = array();
+	if ( $has_beef_scope ) {
+		$notes[] = __( '*Beef claims apply to biltong', 'kesto' );
+	}
+	if ( $provisional && kesto_concept_mode() ) {
+		$notes[] = __( 'Concept claims — pending verification', 'kesto' );
+	}
+	?>
+	<?php if ( $notes ) : ?>
+		<p class="kesto-benefits__status"><?php echo esc_html( implode( ' · ', $notes ) ); ?></p>
 	<?php endif; ?>
 </section>

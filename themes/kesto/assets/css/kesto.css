@@ -179,7 +179,7 @@ a.kesto-logo:hover { color: var(--k-tomato-deep); }
 }
 .kesto-hero__underline {
 	--kh: clamp(3.4rem, 8.4vw, 9.25rem) * 0.9;
-	position: absolute; z-index: 0; left: 26%; width: min(62%, 15rem);
+	position: absolute; z-index: 0; left: 24%; width: min(52%, 12.5rem);
 	top: calc(var(--kh) * 2.74);
 }
 .kesto-hero__lede {
@@ -193,7 +193,7 @@ a.kesto-logo:hover { color: var(--k-tomato-deep); }
 	position: absolute; left: calc(100% + 0.25rem); bottom: 30%;
 	width: clamp(64px, 7vw, 112px);
 }
-.kesto-hero__media { position: relative; z-index: 1; min-height: 100%; }
+.kesto-hero__media { position: relative; z-index: 1; min-height: 100%; container-type: size; }
 .kesto-hero__photo, .kesto-hero__photo img {
 	position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
 }
@@ -203,10 +203,11 @@ a.kesto-logo:hover { color: var(--k-tomato-deep); }
 }
 .kesto-hero__pouch { position: absolute; z-index: 2; display: block; filter: drop-shadow(0 18px 18px rgba(40, 10, 0, 0.35)); }
 .kesto-hero__pouch img { display: block; width: 100%; height: auto; }
-.kesto-hero__pouch--a { width: 14.5%; right: 15.5%; bottom: 3%; transform: rotate(-5deg); }
-.kesto-hero__pouch--b { width: 14%; right: 2.5%; bottom: 1.5%; transform: rotate(6deg); }
+.kesto-hero__pouch--a { width: 18cqw; right: 21cqw; bottom: 3cqh; transform: rotate(-5deg); z-index: 3; }
+.kesto-hero__pouch--b { width: 15.5cqw; right: 4cqw; bottom: 1.5cqh; transform: rotate(6deg); }
 .kesto-hero__note {
-	position: absolute; z-index: 2; right: 30%; top: 46%;
+	position: absolute; z-index: 2; top: auto;
+	right: 33cqw; bottom: calc(3cqh + 27cqw + 4.5rem);
 	margin: 0;
 	font-family: var(--k-display); text-transform: uppercase;
 	color: var(--k-white);
@@ -216,7 +217,7 @@ a.kesto-logo:hover { color: var(--k-tomato-deep); }
 	text-shadow: 0 2px 14px rgba(60, 15, 0, 0.55);
 }
 .kesto-hero__note-arrow {
-	position: absolute; z-index: 2; right: 30.5%; top: 60%; width: clamp(34px, 3.2vw, 52px);
+	position: absolute; z-index: 2; top: auto; right: 31cqw; bottom: calc(3cqh + 27cqw + 0.5rem); width: clamp(34px, 3.2vw, 52px);
 	transform: rotate(10deg); filter: drop-shadow(0 2px 6px rgba(60, 15, 0, 0.5));
 }
 
@@ -357,8 +358,7 @@ a.kesto-logo:hover { color: var(--k-tomato-deep); }
 
 /* ---------- Story (green) ---------- */
 .kesto-story {
-	background: var(--k-leaf);
-	background-image: radial-gradient(120% 90% at 50% 0%, #366214 0%, var(--k-leaf) 55%, var(--k-leaf-deep) 100%);
+	background: #2b4d07; /* sampled flat from the approved comp */
 	color: var(--k-cream);
 	padding: clamp(2.75rem, 5vw, 4.75rem) var(--k-gutter) clamp(2.75rem, 5vw, 4.5rem) !important;
 }
@@ -545,8 +545,9 @@ nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: cl
 	.kesto-shop__inner { grid-template-columns: 1fr; }
 	.kesto-shop__intro { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 1.5rem; }
 	.kesto-shop__headline { max-width: none; }
-	.kesto-shop__underline { width: min(60%, 22rem); order: 3; flex-basis: 100%; }
-	.kesto-shop__arrow { position: relative; right: auto; bottom: auto; width: 90px; rotate: 30deg; }
+	.kesto-shop__intro { display: block; }
+	.kesto-shop__underline { width: min(52%, 15rem); }
+	.kesto-shop__arrow { right: 6%; bottom: -1.25rem; width: 84px; rotate: 62deg; }
 	.kesto-footer__inner { grid-template-columns: auto 1fr; }
 	.kesto-concept-note { grid-column: 1 / -1; max-width: none; }
 }
@@ -567,7 +568,7 @@ nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: cl
 	.kesto-benefits__status { text-align: left; }
 
 	.kesto-shop__headline { font-size: clamp(2.6rem, 12vw, 4.4rem); max-width: 9.4ch; }
-	.kesto-shop__arrow { display: none; }
+	.kesto-shop__arrow { width: 64px; right: 2%; bottom: -0.5rem; }
 }
 @media (max-width: 599px) {
 	/* Products: native horizontal scroll with snap, one and a half tiles visible. */
@@ -582,7 +583,7 @@ nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: cl
 	.kesto-products__note::before, .kesto-products__note::after, .kesto-products__note span + span::before { display: none; }
 
 	.kesto-story__stages { grid-template-columns: 1fr; gap: 0; max-width: 30rem; }
-	.kesto-story__arrow { width: 70px; margin: 0.5rem auto !important; rotate: 90deg; }
+	.kesto-story__arrow { width: 40px; margin: 1.75rem auto 1.25rem !important; rotate: 90deg; }
 	.kesto-community__media { aspect-ratio: 1; }
 	.kesto-community__pouch--a { width: 30%; }
 	.kesto-community__pouch--b { width: 28%; }
@@ -617,12 +618,20 @@ nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: cl
 	.kesto-hero__photo { clip-path: none; }
 	.kesto-hero__pouch--a { width: 28%; right: 33%; bottom: -4%; }
 	.kesto-hero__pouch--b { width: 27%; right: 4%; bottom: -6%; }
-	.kesto-hero__note { right: auto; left: 4%; top: 5%; font-size: 1.55rem; }
+	.kesto-hero__note { right: auto; bottom: auto; left: 4%; top: 5%; font-size: 1.55rem; }
 	.kesto-hero__note-arrow { display: none; }
 	@media (prefers-reduced-motion: no-preference) {
 		.kesto-motion .kesto-hero__photo { animation-name: kesto-mask-m; }
 		@keyframes kesto-mask-m { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0); } }
 	}
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+	.kesto-hero__underline { top: calc(var(--kh) * 2.62); }
+	.kesto-hero__pouch--a { width: 20cqw; right: 22cqw; }
+	.kesto-hero__pouch--b { width: 17cqw; }
+	.kesto-hero__note { bottom: calc(3cqh + 30cqw + 3.5rem); right: 36cqw; font-size: 1.35rem; }
+	.kesto-hero__note-arrow { bottom: calc(3cqh + 30cqw + 0.25rem); right: 34cqw; width: 30px; }
 }
 
 @media (min-width: 1700px) {
@@ -795,6 +804,5 @@ nav.kesto-footer__nav { border-left: 2px solid var(--k-tomato); padding-left: cl
    (the editor gives every block `position: relative`). */
 :is(.kesto-hero__pouch, .kesto-hero__note, .kesto-hero__note-arrow, .kesto-hero__arrow, .kesto-hero__underline,
 	.kesto-hero__photo, .kesto-community__photo, .kesto-community__pouch, .kesto-community__arrow, .kesto-shop__arrow) { position: absolute !important; }
-@media (max-width: 1100px) { .kesto-shop__arrow { position: relative !important; } }
 .editor-styles-wrapper .kesto-hero__media, .editor-styles-wrapper .kesto-community__media { min-height: 420px; }
 .kesto-hero__title, .kesto-community__title, .kesto-shop__intro, .kesto-hero__cta, .kesto-community__cta { position: relative !important; }

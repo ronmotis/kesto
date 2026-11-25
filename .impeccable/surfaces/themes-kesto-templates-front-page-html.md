@@ -26,3 +26,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 Signature interaction: hand-drawn arrows draw once on entry; the hero CTA arrow nudges toward the button on hover/focus. Motion grammar: short ease-out reveals, one mask reveal on the hero photo, staggered story photos, slight pouch depth.
 
 Unresolved: Nando's Hand licence/file; real prices; Chilli Bites packshot; claims verification; founder/farm story; social URLs; hosting.
+
+## Build deviations (pending user sign-off)
+
+- Hero pouch "in her raised hand" (FIRST VIEWPORT): built as real pouch cut-outs standing on the table beside her, at about 18% of the photo width, instead of held. Reason: a generated pouch would corrupt the real label, and a pasted-in grip without a hand matte reads fake. A photoshoot (or an approved composite) with the real pouch in hand closes this. Not yet approved by the user.
+- Comp-diff measurement was not run: the comp is a full-page 1024×1536 board, not a first-viewport comp. Review used side-by-side captures instead (.impeccable/review/).

@@ -27,7 +27,7 @@ $pouch = static function ( string $key, string $class, string $alt ) {
 			'desktopUrl'    => kesto_img( "pouch-{$key}-400.webp" ),
 			'desktopSrcset' => kesto_srcset( "pouch-{$key}", array( 240, 400, 640 ) ),
 			'desktopWidth'  => 400,
-			'desktopHeight' => 604,
+			'desktopHeight' => array( 'original' => 605, 'chilli' => 596, 'trail' => 593 )[ $key ],
 			'sizes'         => '(max-width: 781px) 26vw, 11vw',
 			'alt'           => $alt,
 			'className'     => $class,
