@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T19:06:11+00:00",
+  "title": "Design System: KESTO",
+  "extensions": {
+    "colorMeta": {
+      "tomato": {
+        "role": "primary",
+        "displayName": "Deep Tomato",
+        "canonical": "#A3120C",
+        "oklch": "oklch(45.7% 0.177 29.1)",
+        "tonalRamp": [
+          "#220000",
+          "#4E0402",
+          "#7E1A13",
+          "#B23126",
+          "#D75D4F",
+          "#F38E7F",
+          "#FFB9AC",
+          "#FFDDD2"
+        ]
+      },
+      "tomato-deep": {
+        "role": "primary",
+        "displayName": "Burnt Tomato",
+        "canonical": "#7E0D08",
+        "oklch": "oklch(37.9% 0.146 29.1)",
+        "tonalRamp": [
+          "#1F0000",
+          "#480F0A",
+          "#75271F",
+          "#A64035",
+          "#CB685A",
+          "#E89588",
+          "#FFBEB3",
+          "#FFE0D7"
+        ]
+      },
+      "mango": {
+        "role": "secondary",
+        "displayName": "Mango",
+        "canonical": "#F5A511",
+        "oklch": "oklch(78.1% 0.163 73.7)",
+        "tonalRamp": [
+          "#1B0400",
+          "#411B00",
+          "#6B3600",
+          "#985300",
+          "#BC7900",
+          "#DAA254",
+          "#F5C98F",
+          "#FFE8BC"
+        ]
+      },
+      "mango-bright": {
+        "role": "secondary",
+        "displayName": "Bright Mango",
+        "canonical": "#FDB41D",
+        "oklch": "oklch(81.8% 0.165 78.2)",
+        "tonalRamp": [
+          "#1A0500",
+          "#3F1D00",
+          "#683800",
+          "#955600",
+          "#B87B00",
+          "#D6A451",
+          "#F2CA8C",
+          "#FFEABB"
+        ]
+      },
+      "story-green": {
+        "role": "tertiary",
+        "displayName": "Story Green (flat, sampled from comp)",
+        "canonical": "#2B4D07",
+        "oklch": "oklch(38.0% 0.102 133.2)",
+        "tonalRamp": [
+          "#050F00",
+          "#1A2C0B",
+          "#344E1F",
+          "#507236",
+          "#73955C",
+          "#9CB889",
+          "#C3D9B4",
+          "#E3F5D8"
+        ]
+      },
+      "leaf": {
+        "role": "tertiary",
+        "displayName": "Leaf",
+        "canonical": "#2B4F0E",
+        "oklch": "oklch(38.6% 0.101 134.5)",
+        "tonalRamp": [
+          "#040F00",
+          "#192D0C",
+          "#334E21",
+          "#4E7238",
+          "#72955E",
+          "#9BB88B",
+          "#C2DAB5",
+          "#E3F5D9"
+        ]
+      },
+      "leaf-deep": {
+        "role": "tertiary",
+        "displayName": "Deep Leaf",
+        "canonical": "#1F3A09",
+        "oklch": "oklch(31.5% 0.081 134.3)",
+        "tonalRamp": [
+          "#060E02",
+          "#1C2B13",
+          "#374C2A",
+          "#547042",
+          "#779367",
+          "#9FB692",
+          "#C5D8BB",
+          "#E5F4DD"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "canonical": "#FBEBD6",
+        "oklch": "oklch(94.7% 0.033 74.8)",
+        "tonalRamp": [
+          "#0F0A05",
+          "#2C251C",
+          "#4D4336",
+          "#716453",
+          "#948776",
+          "#B7AC9E",
+          "#D8D0C4",
+          "#F4EDE5"
+        ]
+      },
+      "cream-deep": {
+        "role": "neutral",
+        "displayName": "Deep Cream",
+        "canonical": "#F4DCBB",
+        "oklch": "oklch(90.6% 0.051 75.8)",
+        "tonalRamp": [
+          "#100A03",
+          "#2F2415",
+          "#51422D",
+          "#766347",
+          "#99866B",
+          "#BCAB95",
+          "#DCCFBD",
+          "#F7EDDF"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Warm White",
+        "canonical": "#FFFDF9",
+        "oklch": "oklch(99.4% 0.006 84.6)",
+        "tonalRamp": [
+          "#0C0B0A",
+          "#272625",
+          "#464542",
+          "#676663",
+          "#8A8986",
+          "#AFAEAB",
+          "#D2D1CF",
+          "#EFEEED"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#2A1710",
+        "oklch": "oklch(22.8% 0.034 40.9)",
+        "tonalRamp": [
+          "#100907",
+          "#2F231F",
+          "#52413A",
+          "#776058",
+          "#9A847C",
+          "#BCA9A3",
+          "#DCCDC8",
+          "#F7ECE7"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#6B4A3A",
+        "oklch": "oklch(44.1% 0.052 46.8)",
+        "tonalRamp": [
+          "#130804",
+          "#332219",
+          "#573F33",
+          "#7E5E4E",
+          "#A18172",
+          "#C3A79B",
+          "#E2CCC2",
+          "#FCEAE2"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Line",
+        "canonical": "#C9A27F",
+        "oklch": "oklch(73.9% 0.066 63.4)",
+        "tonalRamp": [
+          "#130802",
+          "#342211",
+          "#583F27",
+          "#805E3F",
+          "#A38264",
+          "#C4A890",
+          "#E3CCB9",
+          "#FDEBDC"
+        ]
+      },
+      "story-text": {
+        "role": "neutral",
+        "displayName": "Story Text",
+        "canonical": "#F6E5CC",
+        "oklch": "oklch(92.9% 0.038 77.6)",
+        "tonalRamp": [
+          "#0F0A05",
+          "#2D251A",
+          "#4E4334",
+          "#72644F",
+          "#958773",
+          "#B8AC9B",
+          "#D9D0C2",
+          "#F5EDE3"
+        ]
+      },
+      "story-text-muted": {
+        "role": "neutral",
+        "displayName": "Story Text Muted",
+        "canonical": "#E9D8BD",
+        "oklch": "oklch(88.9% 0.041 79.5)",
+        "tonalRamp": [
+          "#0F0A04",
+          "#2D2519",
+          "#4E4332",
+          "#72644D",
+          "#958771",
+          "#B8AC9A",
+          "#D9D0C1",
+          "#F5EDE2"
+        ]
+      },
+      "tile-orange": {
+        "role": "product",
+        "displayName": "Tile Orange (Original)",
+        "canonical": "#F68700",
+        "oklch": "oklch(73.1% 0.174 58.4)",
+        "tonalRamp": [
+          "#1F0100",
+          "#481200",
+          "#762B00",
+          "#A74500",
+          "#CB6D00",
+          "#E8995A",
+          "#FFC292",
+          "#FFE3BF"
+        ],
+        "highlight": "#FFB347"
+      },
+      "tile-red": {
+        "role": "product",
+        "displayName": "Tile Red (Chilli)",
+        "canonical": "#BD1C17",
+        "oklch": "oklch(51.3% 0.195 28.6)",
+        "tonalRamp": [
+          "#240000",
+          "#510000",
+          "#830E0B",
+          "#B8261E",
+          "#DE5749",
+          "#F98A7B",
+          "#FFB6A9",
+          "#FFDBD0"
+        ],
+        "highlight": "#EC4A34"
+      },
+      "tile-cream": {
+        "role": "product",
+        "displayName": "Tile Cream (Trail Mix)",
+        "canonical": "#F6D7AE",
+        "oklch": "oklch(89.5% 0.064 74.6)",
+        "tonalRamp": [
+          "#120901",
+          "#312410",
+          "#554126",
+          "#7B613E",
+          "#9E8563",
+          "#BFAA8F",
+          "#DFCEB8",
+          "#F9ECDB"
+        ],
+        "highlight": "#FFF1DC"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only. Chau Philomene One is a temporary stand-in for Nando's Hand, pending font file and licence."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section and page headlines, uppercase poster stacks; same stand-in face."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product names, stage labels, checkout step titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy, max 68ch."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero and page support lines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, bag, buttons, field labels."
+      },
+      "label-caps": {
+        "displayName": "Label caps",
+        "purpose": "Benefit strip items only."
+      },
+      "fine": {
+        "displayName": "Fine",
+        "purpose": "Disclaimers, demo-price and concept notes, legal."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pouch",
+        "value": "drop-shadow(0 18px 18px rgba(40, 10, 0, 0.35))",
+        "purpose": "Layered pouch cut-outs (16px on tiles, 22px on product page)."
+      },
+      {
+        "name": "food",
+        "value": "drop-shadow(0 8px 10px rgba(40, 10, 0, 0.3))",
+        "purpose": "Food cut-outs beside a pouch."
+      },
+      {
+        "name": "button-glow",
+        "value": "0 10px 22px -14px rgba(90, 20, 4, 0.55)",
+        "purpose": "Filled buttons only."
+      },
+      {
+        "name": "photo-frame",
+        "value": "0 18px 32px -18px rgba(0, 0, 0, 0.55)",
+        "purpose": "Cream-matted story photos on the green band."
+      },
+      {
+        "name": "hand-note",
+        "value": "text-shadow: 0 2px 14px rgba(60, 15, 0, 0.55)",
+        "purpose": "White hand note over photography."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every transition and entrance."
+      },
+      {
+        "name": "arrow-draw",
+        "value": "0.9s, strokes staggered 0.45s, once on entry",
+        "purpose": "Hand-drawn arrows and swashes draw themselves once when scrolled into view."
+      },
+      {
+        "name": "cta-arrow-nudge",
+        "value": "translate(-7px, 2-3px), 0.35s",
+        "purpose": "Arrow beside the hero/community CTA nudges toward the button on hover or keyboard focus; the inline button arrow moves 2px up-right."
+      },
+      {
+        "name": "hero-mask",
+        "value": "clip-path reveal along the slanted edge, 1.1s (inset wipe on phones)",
+        "purpose": "One mask reveal on the hero photo; pouches rise at 0.55s/0.7s, hand note fades at 1.1s."
+      },
+      {
+        "name": "story-stagger",
+        "value": "fade + 28px rise, 0.14s apart",
+        "purpose": "Story photos enter in sequence as the green band arrives; product tiles 24px, 0.08s apart."
+      },
+      {
+        "name": "pouch-depth",
+        "value": "translate by scroll position x 14 or 22px",
+        "purpose": "Layered pouches drift slightly against the scroll."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "static",
+        "purpose": "Everything is static under prefers-reduced-motion; start states apply only under the motion class, with a 4s reveal safety net."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "599px"
+      },
+      {
+        "name": "tablet",
+        "value": "781px"
+      },
+      {
+        "name": "hero-mid",
+        "value": "1023px"
+      },
+      {
+        "name": "stack",
+        "value": "1100px"
+      },
+      {
+        "name": "wide",
+        "value": "1700px"
+      }
+    ],
+    "provisional": {
+      "displayFace": "Chau Philomene One stands in for Nando's Hand pending file and licence.",
+      "claims": "Benefit claims are provisional and carry a concept disclaimer while concept mode is on.",
+      "prices": "Demo values, tagged DEMO."
+    }
+  },
+  "components": [
+    {
+      "name": "Mango Button",
+      "kind": "button",
+      "refersTo": "button-mango",
+      "description": "Primary action on light grounds, with the up-right arrow.",
+      "html": "<a class=\"ds-btn ds-btn-mango\" href=\"#\">Find my snack <span class=\"ds-btn__arrow\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M8 6h10v10\"/></svg></span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.25rem;line-height:1;text-decoration:none;border-radius:8px;padding:.7em 1.15em;box-shadow:0 10px 22px -14px rgba(90,20,4,.55);transition:background-color .2s cubic-bezier(0.16,1,0.3,1),transform .2s cubic-bezier(0.16,1,0.3,1)}.ds-btn-mango{background:#F5A511;color:#7E0D08}.ds-btn-mango:hover{background:#FDB41D}.ds-btn:focus-visible{outline:3px solid #A3120C;outline-offset:3px}.ds-btn:active{transform:translateY(1px)}.ds-btn__arrow{display:inline-flex;transition:transform .25s cubic-bezier(0.16,1,0.3,1)}.ds-btn:is(:hover,:focus-visible) .ds-btn__arrow{transform:translate(2px,-2px)}"
+    },
+    {
+      "name": "Tomato Button",
+      "kind": "button",
+      "refersTo": "button-tomato",
+      "description": "CTA on the mango community band and form submit.",
+      "html": "<a class=\"ds-btn ds-btn-tomato\" href=\"#\">Shop the snacks <span class=\"ds-btn__arrow\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M8 6h10v10\"/></svg></span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.25rem;line-height:1;text-decoration:none;border-radius:8px;padding:.7em 1.15em;box-shadow:0 10px 22px -14px rgba(90,20,4,.55);transition:background-color .2s cubic-bezier(0.16,1,0.3,1),transform .2s cubic-bezier(0.16,1,0.3,1)}.ds-btn-tomato{background:#A3120C;color:#FBEBD6}.ds-btn-tomato:hover{background:#7E0D08}.ds-btn:focus-visible{outline:3px solid #A3120C;outline-offset:3px}.ds-btn:active{transform:translateY(1px)}.ds-btn__arrow{display:inline-flex;transition:transform .25s cubic-bezier(0.16,1,0.3,1)}.ds-btn:is(:hover,:focus-visible) .ds-btn__arrow{transform:translate(2px,-2px)}"
+    },
+    {
+      "name": "Cream Button",
+      "kind": "button",
+      "refersTo": "button-cream",
+      "description": "CTA on the flat story-green band.",
+      "html": "<div class=\"ds-green\"><a class=\"ds-btn ds-btn-cream\" href=\"#\">Explore the story <span class=\"ds-btn__arrow\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M8 6h10v10\"/></svg></span></a></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.25rem;line-height:1;text-decoration:none;border-radius:8px;padding:.7em 1.15em;box-shadow:0 10px 22px -14px rgba(90,20,4,.55);transition:background-color .2s cubic-bezier(0.16,1,0.3,1),transform .2s cubic-bezier(0.16,1,0.3,1)}.ds-btn-cream{background:#FBEBD6;color:#1F3A09}.ds-btn-cream:hover{background:#FFFDF9}.ds-btn:focus-visible{outline:3px solid #A3120C;outline-offset:3px}.ds-btn:active{transform:translateY(1px)}.ds-btn__arrow{display:inline-flex;transition:transform .25s cubic-bezier(0.16,1,0.3,1)}.ds-btn:is(:hover,:focus-visible) .ds-btn__arrow{transform:translate(2px,-2px)}.ds-green{background:#2B4D07;padding:24px}.ds-green .ds-btn:focus-visible{outline-color:#FDB41D}"
+    },
+    {
+      "name": "Add to Bag",
+      "kind": "button",
+      "refersTo": "button-add",
+      "description": "Outlined tomato quick-add beside a Shop text link; leaf green once added.",
+      "html": "<div class=\"ds-add-row\"><a class=\"ds-shop\" href=\"#\">Shop <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 18 18 6M8 6h10v10\"/></svg></a><button class=\"ds-add\" type=\"button\">+ Add to bag</button><button class=\"ds-add is-added\" type=\"button\">Added</button></div>",
+      "css": ".ds-add-row{display:flex;gap:1rem;align-items:center}.ds-shop{display:inline-flex;align-items:center;gap:.2rem;min-height:44px;font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.15rem;color:#A3120C;text-decoration:none}.ds-shop:hover{text-decoration:underline}.ds-add{font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1rem;min-height:44px;padding:.5em .85em;border-radius:8px;background:transparent;color:#A3120C;border:2px solid currentColor;cursor:pointer;transition:background-color .2s}.ds-add:hover{background:#A3120C;color:#FBEBD6}.ds-add:focus-visible{outline:3px solid #A3120C;outline-offset:3px}.ds-add.is-added{background:#2B4F0E;border-color:#2B4F0E;color:#FBEBD6}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Tomato label links with an underline that grows on hover, focus and current page.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Shop</a><a href=\"#\" aria-current=\"page\">What’s biltong?</a><a href=\"#\">Our roots</a><a href=\"#\">Bag (0)</a></nav>",
+      "css": ".ds-nav{display:flex;gap:2rem;background:#FBEBD6;padding:1rem}.ds-nav a{font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.25rem;color:#A3120C;text-decoration:none;padding-block:.4rem;min-height:44px;display:inline-flex;align-items:center;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .3s cubic-bezier(0.16,1,0.3,1)}.ds-nav a:is(:hover,:focus-visible,[aria-current]){background-size:100% 2px;color:#7E0D08}.ds-nav a:focus-visible{outline:3px solid #A3120C;outline-offset:3px}"
+    },
+    {
+      "name": "Benefit Strip",
+      "kind": "custom",
+      "refersTo": "benefit-strip",
+      "description": "Mango band of uppercase provisional claims with the pending-verification status line.",
+      "html": "<section class=\"ds-benefits\"><ul><li>High protein<sup>*</sup></li><li>Grass-fed beef<sup>*</sup></li><li>Gluten-free</li><li>Made in the USA</li></ul><p>*Beef claims apply to biltong · Concept claims — pending verification</p></section>",
+      "css": ".ds-benefits{background:#F5A511;padding:.9rem 1.5rem}.ds-benefits ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}.ds-benefits li{font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.01em;font-size:1.3rem;color:#2A1710;text-align:center;padding:.35rem .75rem}.ds-benefits li+li{border-left:2px solid rgba(126,13,8,.35)}.ds-benefits sup{font-size:.6em;color:#7E0D08}.ds-benefits p{margin:.35rem 0 0;text-align:right;font:600 .8125rem Barlow,sans-serif;color:#7E0D08}"
+    },
+    {
+      "name": "Product Tile",
+      "kind": "card",
+      "refersTo": "product-tile",
+      "description": "Flavour-coloured 0.9 tile with a sun pool behind the pouch; pouch lifts on hover.",
+      "html": "<article class=\"ds-tile\"><div class=\"ds-tile__media\"><div class=\"ds-tile__pouch\">KESTO</div></div><h3>Original Biltong</h3><p>$14.99 <span class=\"ds-demo\">Demo</span></p></article>",
+      "css": ".ds-tile{width:220px;text-align:center}.ds-tile__media{position:relative;display:grid;place-items:end center;aspect-ratio:.9;border-radius:12px;overflow:hidden;background:#F68700;background-image:radial-gradient(60% 55% at 50% 38%,#FFB347,transparent 70%)}.ds-tile__pouch{width:56%;aspect-ratio:.72;margin-bottom:12%;background:#1b1b1b;border-radius:6px;color:#F5A511;display:grid;place-items:center;font:700 1rem 'Barlow Semi Condensed',sans-serif;filter:drop-shadow(0 16px 16px rgba(40,10,0,.35));transition:transform .45s cubic-bezier(0.16,1,0.3,1)}.ds-tile:hover .ds-tile__pouch{transform:translateY(-6px) rotate(-1.5deg)}.ds-tile h3{font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.35rem;color:#2A1710;margin:.85rem 0 .15rem}.ds-tile p{margin:0;font:600 .95rem Barlow,sans-serif;color:#2A1710}.ds-demo{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:#F4DCBB;color:#7E0D08;border-radius:4px;padding:.1rem .35rem}"
+    },
+    {
+      "name": "Display Headline with Swash",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Uppercase tomato poster stack with a mango hand-drawn underline that draws once.",
+      "html": "<h2 class=\"ds-display\">Good food.<br>Great mood.</h2><svg class=\"ds-swash\" viewBox=\"0 0 240 26\" fill=\"none\" stroke=\"#F5A511\" stroke-linecap=\"round\" aria-hidden=\"true\"><path pathLength=\"1\" d=\"M4 18c48-9 108-14 168-11 22 1 42 3 62 7\"/></svg>",
+      "css": ".ds-display{font-family:'Chau Philomene One','Barlow Semi Condensed',sans-serif;font-weight:400;text-transform:uppercase;color:#A3120C;line-height:.9;font-size:4.5rem;margin:0;max-width:6ch}.ds-swash{width:180px;display:block}.ds-swash path{stroke-width:5.5;stroke-dasharray:1;stroke-dashoffset:0;animation:ds-draw .9s .25s cubic-bezier(0.16,1,0.3,1) both}@keyframes ds-draw{from{stroke-dashoffset:1}}@media (prefers-reduced-motion:reduce){.ds-swash path{animation:none}}"
+    },
+    {
+      "name": "Enquiry Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Warm white field with field-line border; tomato border and ring on focus.",
+      "html": "<label class=\"ds-field\"><span>Your email <b>*</b></span><input type=\"email\" placeholder=\"you@example.com\"></label>",
+      "css": ".ds-field{display:grid;gap:.35rem;max-width:320px}.ds-field span{font-family:'Barlow Semi Condensed',Barlow,sans-serif;font-weight:700;font-size:1.05rem;color:#2A1710}.ds-field b{color:#A3120C}.ds-field input{font:400 1.0625rem Barlow,sans-serif;color:#2A1710;background:#FFFDF9;border:2px solid #C9A27F;border-radius:8px;padding:.7rem .85rem;min-height:48px}.ds-field input:focus{border-color:#A3120C;outline:3px solid rgba(163,18,12,.25);outline-offset:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sunny Shared Table",
+    "overview": "KESTO sells Southern African biltong to people who have mostly never tasted it, so the system refuses the category default of dark, macho protein packaging walls. The page is a warm afternoon outdoors: a cream ground, huge deep-tomato display type, mango for every action, one flat leaf-green band for the story of where the food comes from, and real photography of people laughing over a bowl. The black resealable pouches are the only dark objects on the page, so they pop. Every pouch shown is the real packaging, cut out and layered, never redrawn.\n\nDensity is low and the rhythm is poster-like: each home band is one idea, set in display type that fills its column, with a hand-drawn tomato or cream arrow pointing at the next thing to do. Labels and controls are quiet Barlow Semi Condensed; the noise belongs to the headlines and the photos. The approved full-page comp (`.impeccable/reference/comp.png`) is the visual authority; where the build and the comp differ, this file records the build.\n\nThe system is in concept mode. The display face is a temporary stand-in, prices are demo values, and benefit claims are provisional; the visual system carries the labels that say so rather than hiding them.",
+    "keyCharacteristics": [
+      "Cream ground, tomato display type, mango action, one flat green band.",
+      "Display type uppercase, tight (0.9 line-height), filling its column.",
+      "Hand-drawn SVG arrows and underline swashes as the signature device; they draw once on entry.",
+      "Real pouch cut-outs layered over photography with soft, warm drop shadows.",
+      "Slanted photo edges (clip-path) that the headline overlaps.",
+      "Soft ease-out motion; fully static under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The One Dark Object Rule",
+        "body": "Nothing on the page is darker than the pouches except ink text. No black sections, no dark hero, no dark cards.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mango Means Go Rule",
+        "body": "Mango fills belong to the next action (buy, find, check out) and to the benefit strip. Secondary actions are tomato, cream or outlined.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Band Rule",
+        "body": "The story band is flat story-green, not a gradient and not the leaf token. Leaf is a state colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Poster Stack Rule",
+        "body": "Display and headline text is uppercase, 0.9 line-height, balanced, and constrained by a ch max-width so it breaks into short stacked lines.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Labels Rule",
+        "body": "The display face is for headlines and the hand note only. Buttons, nav, prices and labels are always Barlow Semi Condensed.",
+        "section": "typography"
+      },
+      {
+        "name": "The Thumb Reach Rule",
+        "body": "The bag link stays visible beside the menu button on phones, and every touch target is at least 44px (buttons 48px, primary checkout 52px).",
+        "section": "layout"
+      },
+      {
+        "name": "The Objects Cast Shadows Rule",
+        "body": "Only things that would sit on the table (pouches, food, printed photos) and filled buttons cast shadows. Containers, cards and bands are flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every section headline in the display face, uppercase, tomato on light grounds and cream on the green band, at 0.9 line-height.",
+      "Do use mango with burnt-tomato text for the main action on any light ground; use cream on the story band and tomato on the mango band.",
+      "Do show packaging only as the real pouch cut-outs, layered with the warm pouch shadow and a few degrees of rotation.",
+      "Do pair a new product tile with its flavour tile colour and sun-pool highlight.",
+      "Do point a hand-drawn arrow from copy to its action, and let it draw once.",
+      "Do label provisional claims and demo prices visibly (status line, DEMO tag, concept note) until they are verified.",
+      "Do keep every motion behind the reduced-motion and motion-class gates, with content visible by default."
+    ],
+    "donts": [
+      "Don't introduce dark sections, black cards or a dark hero; the pouches are the only dark objects.",
+      "Don't fill the story band with the leaf token or a gradient; it is flat story green.",
+      "Don't set buttons, nav, prices or labels in the display face.",
+      "Don't use pure black or grey shadows; shadows are warm brown and soft, and only objects and filled buttons cast them.",
+      "Don't show a benefit claim without its pending-verification note while concept mode is on.",
+      "Don't replay entrance animations or add motion that runs without user scroll or interaction."
+    ]
+  }
+}
