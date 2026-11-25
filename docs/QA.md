@@ -55,7 +55,7 @@ Fixed after review:
 - Mobile story arrows moved into the gaps between captions.
 - Beef-claims footnote moved into the benefit strip.
 
-Open, needs the client's decision: the comp shows a pouch **held in her raised hand**. The build stands the real pouches on the table beside her instead, because a composited grip would look fake and a generated pouch would corrupt the label. A shoot with the real pouch closes this.
+Approved by the client for now (2026-11-25): the comp shows a pouch **held in her raised hand**; the build stands the real pouches on the table beside her instead, because a composited grip would look fake and a generated pouch would corrupt the label. A shoot with the real pouch in hand remains the long-term fix.
 
 ## Performance: Lighthouse 12.6.1, simulated throttling, this container
 
