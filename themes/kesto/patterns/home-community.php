@@ -38,8 +38,8 @@ $pouch = static function ( string $key, string $class, string $alt ) {
 <!-- wp:group {"tagName":"section","align":"full","className":"kesto-community","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull kesto-community"><!-- wp:group {"className":"kesto-community__copy","layout":{"type":"default"}} -->
 <div class="wp-block-group kesto-community__copy"><!-- wp:group {"className":"kesto-community__title","layout":{"type":"default"}} -->
-<div class="wp-block-group kesto-community__title"><!-- wp:heading {"className":"kesto-display kesto-community__headline"} -->
-<h2 class="wp-block-heading kesto-display kesto-community__headline">Sharing is optional. Good company isn’t.</h2>
+<div class="wp-block-group kesto-community__title"><!-- wp:heading {"className":"kesto-display kesto-kinetic kesto-community__headline"} -->
+<h2 class="wp-block-heading kesto-display kesto-kinetic kesto-community__headline">Sharing is optional. Good company isn’t.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:kesto/arrow {"variant":"scribble","color":"tomato","className":"kesto-community__underline"} /--></div>

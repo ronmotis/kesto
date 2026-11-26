@@ -16,9 +16,9 @@ const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await ctx.newPage();
 const errors = [];
-page.on('pageerror', (e) => errors.push(e.message));
+page.on('pageerror', (e) => errors.push(e.message + ' @ ' + page.url()));
 // 422s are the deliberate invalid-form submissions below; anything else counts.
-page.on('console', (m) => { if (m.type() === 'error' && !/favicon|status of 422/.test(m.text())) errors.push(m.text()); });
+page.on('console', (m) => { if (m.type() === 'error' && !/favicon|status of 422/.test(m.text())) errors.push(m.text() + ' @ ' + page.url()); });
 const count = () => page.locator('[data-kesto-bag-count]').first().textContent();
 
 try {

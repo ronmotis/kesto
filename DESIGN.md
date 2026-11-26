@@ -306,13 +306,21 @@ On the product page, claims sit as mango pills with icons under a 2px tomato rul
 Seven SVG stroke variants (hook, loop, swirl, swoop, curve-down, and two underline swashes) in tomato, cream, mango or ink. Each stroke is a separate path with normalised length, so it draws in sequence. They point from copy to the action they introduce and never carry meaning on their own (always `aria-hidden`).
 
 ### Motion
-Short ease-out (`cubic-bezier(0.16, 1, 0.3, 1)`) and only on entry or direct interaction:
-- **Arrows draw once on entry:** each stroke draws over 0.9s as it scrolls into view, strokes staggered 0.45s, never replayed.
+One authored moment (the pinned story band), quiet support everywhere else. Ease-out `cubic-bezier(0.16, 1, 0.3, 1)`; only transform, opacity and clip-path animate. No libraries: one rAF scroll loop (`assets/js/kesto.js`, "Motion layer") reads every rect, then writes custom properties.
+- **Hero on load (about 1.1s):** the photo wipes in along its slanted edge (1s; a straight wipe on phones). Headline words rise out of their own line (0.7s, 70ms apart). Lede and CTA follow at 0.18s and 0.26s, so the CTA is readable by about 0.45s. Pouches land at 0.3s and 0.4s, the "Pass it round!" note swings in at 0.6s, and the underline draws at 0.45s.
+- **Hero on scroll (600px and up):** the photo eases to 1.1× and the copy, pouches and note drift apart at different speeds (`--hp`, 0 to 1 as the hero leaves).
+- **Pinned story band (1024×620 and up):** the section is 250svh with a 100svh sticky stage. Scroll progress `--p` plays source (0.02–0.28), arrow 1 (0.24–0.38), craft (0.34–0.60), arrow 2 (0.56–0.70), company (0.66–0.92), CTA (0.86–0.98). Each photo rises 3.5rem through a bottom-up clip with a smoothstep curve, and its caption follows. Keyboard focus inside the band shows everything at once. Smaller screens don't pin: stages fade up 28px, 0.14s apart.
+- **Arrows draw with scroll:** outside the hero, each stroke follows `--draw`, and strokes draw in order. They reverse when you scroll back and are complete at the page end. Hero arrows draw once on load.
+- **Ticker band:** a tomato band tilted −2.4° across the shop/story seam. Its words (an editable list) slide sideways with scroll (`--tp`). JS adds three hidden copies. Without the scroll engine, one list sits centred and still.
+- **Kinetic headlines:** headings with `kesto-kinetic` are split into words on the server (`inc/motion.php`). Words rise out of a mask 90ms apart as each heading arrives.
+- **Staggered reveals:** benefits 100ms apart, product tiles 120ms apart, and groups tagged by JS (community copy, footer, inner pages, shop grid) 110ms apart. Each element rises 1.5rem over 0.6–0.7s, once (observers unobserve). Anything already on screen when JS starts stays as it is.
+- **Tactile states:** buttons lift 2px with a deeper shadow on hover and press to 0.97 on click. Tile media scales to 1.03 with a shadow lift while the tile itself stays still. The pouch lifts and the food slides.
+- **Pointer tilt (fine pointer only):** hero and tile pouches tilt up to 12°/9° toward the mouse. A soft-light glint masked to the pouch's own alpha sweeps across.
+- **Fly to bag:** on quick add, a copy of the pouch arcs into the bag (580ms: sideways travel eases in, the rise eases out, it shrinks to 0.5 by the midpoint and fades in the last 15%). The count bumps on landing. If the header bag is off-screen, a small bag docks in the top-right corner to catch it, then tucks away after 1.6s.
+- **Page to page:** cross-document view transitions (`@view-transition`). The tapped pouch morphs into the product-page photo (0.6s), and the root cross-fades in 0.28s.
+- **Paper grain:** a static 240px SVG noise tile on every painted surface. It doesn't animate.
 - **CTA arrow nudge:** on hover or keyboard focus of the hero and community CTAs, the arrow beside the button moves about 7px toward it.
-- **Hero mask reveal:** the hero photo reveals once along its slanted edge (1.1s; a straight wipe on phones), then pouches rise (0.55s and 0.7s delays) and the hand note fades in; headline, lede and CTA rise in sequence.
-- **Staggered story photos:** the three stages fade up 28px as the band arrives, 0.14s apart. Product tiles settle in the same way, 0.08s apart.
-- **Depth on pouch layers:** layered pouches drift a few pixels against the scroll (factors 14 and 22), driven by a passive, frame-throttled listener.
-- **Reduced motion:** everything is static. Start states are applied only when motion is allowed and IntersectionObserver exists, content is fully visible by default, and a 4s safety net reveals anything not yet observed.
+- **Reduced motion:** everything is static and visible: no pin, no parallax, no ticker slide, no tilt, no flight, no view transitions, and no hover transforms (colour and shadow feedback remain). Start states apply only under `html.kesto-motion`, and a 4s safety net reveals everything if JS never takes over.
 
 ## Do's and Don'ts
 

@@ -1,4 +1,4 @@
-# QA record — 2026-11-25
+# QA record — 2026-11-25 (motion layer added 2026-11-26)
 
 Environment: WordPress 7.1.5 + WooCommerce 11.3.1 on SQLite (Studio's stack), PHP 8.3 built-in server, Chromium (Playwright 1.x), this container. Screenshots are in `.impeccable/review/` (desktop `home-1440.png` and `home-1920.png`, tablet `home-768.png`, mobile `home-390.png`, first viewports `fv-*.png`, store pages `p-*.png`, journeys `journeys-*.png`, editor `editor-front-page.png`).
 
@@ -25,6 +25,58 @@ Also verified:
 - **Clean reproduction.** `bin/setup-local.sh` worked from a clean copy of the repo, and installing the theme and plugin from the built ZIPs rendered every route with status 200.
 - **Stored data.** Enquiries were stored as private `kesto_enquiry` posts. Test orders were recorded as "on-hold" with "Test order — no payment taken". Email can't be sent in this container (no sendmail); the Emailed column shows "No" accordingly.
 - **Block editor.** The front-page template opens in the Site Editor with 0 invalid and 0 missing blocks and no console errors, and renders close to the front end.
+
+## Motion layer (2026-11-26)
+
+Added:
+- pinned scroll-driven story band
+- scroll-drawn arrows
+- tilted ticker band
+- kinetic headlines (split into words on the server)
+- staggered reveals
+- tile/button hover and press states
+- paper grain
+- pointer tilt with a glint on real pouches
+- fly-to-bag with a corner bag dock
+- cross-document view transition (tile pouch → product photo)
+
+The rules are in `DESIGN.md` → Motion. A sequence of the pinned story is in `docs/screenshots/motion-story-sequence.jpg`.
+
+**Journeys:** 37/37 pass, including "No JS errors".
+
+**Independent motion review** (Impeccable motion reviewer, two rounds, from frame captures in `.impeccable/review/motion/`):
+
+| Finding | Status |
+|---|---|
+| Fly-to-bag aimed at an off-screen bag | Fixed: a corner bag docks when the header bag is out of view |
+| Fly-to-bag arc dipped away from the bag | Fixed |
+| Fly-to-bag pouch popped out at the end | Fixed: fades over the last 15% |
+| Fly-to-bag arc clipped by the top of the viewport | Fixed after round 2; re-measured with no clipped pixels |
+| Reduced-motion ticker left an empty band | Fixed |
+| Hero entrance too long (CTA readable only at about 0.95s) | Fixed: about 1.15s total, CTA readable at about 0.45s; arrow strokes shortened after round 2 |
+| Partially revealed story stages read as stray bars | Fixed: smoothstep curve and translucent partial stages |
+| Story arrows undrawn under keyboard focus | Fixed |
+| DESIGN.md out of date | Fixed |
+
+The reviewer's final disposition was "recapture", not "ship": the round-2 fixes (hero arrow timing, top-edge clipping) were verified only by my own recapture, not by a third review round. The skill caps review at two rounds.
+
+**Not verified:**
+- Tilt glint visibility. Frames show the tilt; the glint is subtle.
+- Phone stage stagger caught mid-reveal at one scroll position.
+- Any browser other than Chromium. [Unverified] Cross-document view transitions are, as far as I know, unsupported in Firefox; there, navigation is plain, which is the intended fallback.
+
+**Known Chromium behaviour:**
+- Chromium sometimes skips the page-to-page view transition, intermittently, even between the same two pages (observed on the PHP dev server; cause not established). The page then navigates normally.
+- When it skips, Chromium rejects a promise no script can reach. The head script marks only that `InvalidStateError` as handled, so it isn't reported as an error.
+
+**Performance check:** Lighthouse 12.6.1, mobile, homepage, two runs each, same container:
+
+| Build | Performance | LCP | TBT |
+|---|---|---|---|
+| Before the motion layer | 81 / 81 | 4.4 s / 4.4 s | 0 ms |
+| After | 81 / 82 | 4.4 s / 4.2 s | 10 / 0 ms |
+
+Desktop: 98. Accessibility: 100. No measurable regression in this environment.
 
 ## Visual review against the approved comp
 

@@ -11,8 +11,8 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:group {"tagName":"section","align":"full","anchor":"shop","className":"kesto-shop","layout":{"type":"default"}} -->
 <section id="shop" class="wp-block-group alignfull kesto-shop"><!-- wp:group {"className":"kesto-shop__inner","layout":{"type":"default"}} -->
 <div class="wp-block-group kesto-shop__inner"><!-- wp:group {"className":"kesto-shop__intro","layout":{"type":"default"}} -->
-<div class="wp-block-group kesto-shop__intro"><!-- wp:heading {"className":"kesto-display kesto-shop__headline"} -->
-<h2 class="wp-block-heading kesto-display kesto-shop__headline">Find your flavour. Find your people.</h2>
+<div class="wp-block-group kesto-shop__intro"><!-- wp:heading {"className":"kesto-display kesto-kinetic kesto-shop__headline"} -->
+<h2 class="wp-block-heading kesto-display kesto-kinetic kesto-shop__headline">Find your flavour. Find your people.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:kesto/arrow {"variant":"scribble","color":"mango","className":"kesto-shop__underline"} /-->

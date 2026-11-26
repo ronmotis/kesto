@@ -9,7 +9,7 @@ The hosting destination is **not decided yet**. This guide covers:
 
 | Piece | Where | Notes |
 |---|---|---|
-| Theme | `dist/kesto-theme-1.0.0.zip` (`bin/package.sh`) | Block theme with all compiled assets: images, fonts, CSS, JS. No build step on the server |
+| Theme | `dist/kesto-theme-1.1.0.zip` (`bin/package.sh`) | Block theme with all compiled assets: images, fonts, CSS, JS. No build step on the server |
 | Plugin | `dist/kesto-core-1.0.0.zip` | Claims settings, product tile fields, enquiries, demo setup. Declares `Requires Plugins: woocommerce` |
 | WooCommerce | from wordpress.org | Built and tested with 11.3.1 |
 | WordPress | 7.1.5 tested | `Requires at least: 6.6`, PHP 8.1+ |
@@ -33,7 +33,7 @@ bin/setup-local.sh serve
 
 1. In Studio, **Add site** → a blank site.
 2. In that site's WP admin: **Plugins → Add New** → install and activate **WooCommerce**. Then **Upload Plugin** → `dist/kesto-core-1.0.0.zip` → activate.
-3. **Appearance → Themes → Add New → Upload** → `dist/kesto-theme-1.0.0.zip` → activate.
+3. **Appearance → Themes → Add New → Upload** → `dist/kesto-theme-1.1.0.zip` → activate.
 4. **KESTO → Demo setup → Run setup**, or run `wp kesto setup` from Studio's terminal / WP-CLI.
    - The test payment method is only enabled where `WP_ENVIRONMENT_TYPE` is `local`, `development` or `staging`.
    - If Studio doesn't set that constant, add `define( 'WP_ENVIRONMENT_TYPE', 'local' );` to the site's `wp-config.php`, or enable a test gateway by hand.

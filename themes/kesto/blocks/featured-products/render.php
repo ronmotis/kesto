@@ -69,7 +69,7 @@ $any_demo           = false;
 			<li class="kesto-product kesto-product--<?php echo esc_attr( $tile ); ?>" style="--i:<?php echo (int) $i; ?>">
 				<a class="kesto-product__media" href="<?php echo esc_url( $link ); ?>" tabindex="-1" aria-hidden="true">
 					<?php if ( $img ) : ?>
-						<?php echo $img; // phpcs:ignore ?>
+						<span class="kesto-product__lift kesto-tilt"><?php echo $img; // phpcs:ignore ?></span>
 					<?php else : ?>
 						<span class="kesto-product__pending"><?php echo kesto_icon( 'bag' ); // phpcs:ignore ?><span><?php esc_html_e( 'Packshot coming soon', 'kesto' ); ?></span></span>
 					<?php endif; ?>

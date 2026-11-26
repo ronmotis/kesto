@@ -23,8 +23,9 @@ $stage = static function ( string $key, string $alt ) {
 };
 ?>
 <!-- wp:group {"tagName":"section","align":"full","anchor":"biltong","className":"kesto-story","layout":{"type":"default"}} -->
-<section id="biltong" class="wp-block-group alignfull kesto-story"><!-- wp:heading {"textAlign":"center","className":"kesto-display kesto-story__headline"} -->
-<h2 class="wp-block-heading has-text-align-center kesto-display kesto-story__headline">From the farm. <br>To your good times.</h2>
+<section id="biltong" class="wp-block-group alignfull kesto-story"><!-- wp:group {"className":"kesto-story__pin","layout":{"type":"default"}} -->
+<div class="wp-block-group kesto-story__pin"><!-- wp:heading {"textAlign":"center","className":"kesto-display kesto-kinetic kesto-story__headline"} -->
+<h2 class="wp-block-heading has-text-align-center kesto-display kesto-kinetic kesto-story__headline">From the farm. <br>To your good times.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"kesto-story__intro"} -->
@@ -77,5 +78,6 @@ $stage = static function ( string $key, string $alt ) {
 <div class="wp-block-buttons kesto-story__cta"><!-- wp:button {"className":"kesto-btn kesto-btn--cream kesto-btn--arrow"} -->
 <div class="wp-block-button kesto-btn kesto-btn--cream kesto-btn--arrow"><a class="wp-block-button__link wp-element-button" href="/what-is-biltong/">Explore the story</a></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></section>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
 <!-- /wp:group -->

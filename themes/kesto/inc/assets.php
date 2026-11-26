@@ -41,13 +41,15 @@ add_action(
 
 /**
  * Mark JS + motion capability before first paint, so entrance states never flash
- * and never hide content when scripts are blocked. kesto.js removes `kesto-motion`
- * if IntersectionObserver is unavailable; a timer reveals everything as a fallback.
+ * and never hide content when scripts are blocked. If kesto.js has not taken over within 4s
+ * (blocked or failed), a timer reveals everything. Chrome sometimes skips a
+ * page-to-page view transition and rejects a promise no script can reach; that
+ * one expected rejection is marked handled so it isn't reported as an error.
  */
 add_action(
 	'wp_head',
 	static function () {
-		echo "<script>(function(d){var c=d.documentElement.classList;c.add('kesto-js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){c.add('kesto-motion');setTimeout(function(){c.add('kesto-revealed')},4000)}})(document);</script>\n";
+		echo "<script>(function(d){var c=d.documentElement.classList;c.add('kesto-js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){c.add('kesto-motion');setTimeout(function(){c.contains('kesto-io')||c.add('kesto-revealed')},4000)}addEventListener('pagereveal',function(e){var v=e.viewTransition;if(v){[v.ready,v.finished,v.updateCallbackDone].forEach(function(q){q&&q.catch(function(){})})}});addEventListener('unhandledrejection',function(e){var r=e.reason;if(r&&r.name==='InvalidStateError'&&/transition/i.test(r.message||''))e.preventDefault()})})(document);</script>\n";
 	},
 	1
 );

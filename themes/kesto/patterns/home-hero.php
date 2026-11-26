@@ -42,8 +42,8 @@ $pouch = static function ( string $key, string $class, string $alt ) {
 <!-- wp:group {"tagName":"section","align":"full","className":"kesto-hero","layout":{"type":"default"}} -->
 <section class="wp-block-group alignfull kesto-hero"><!-- wp:group {"className":"kesto-hero__copy","layout":{"type":"default"}} -->
 <div class="wp-block-group kesto-hero__copy"><!-- wp:group {"className":"kesto-hero__title","layout":{"type":"default"}} -->
-<div class="wp-block-group kesto-hero__title"><!-- wp:heading {"level":1,"className":"kesto-display kesto-hero__headline"} -->
-<h1 class="wp-block-heading kesto-display kesto-hero__headline">Good food. Great mood.</h1>
+<div class="wp-block-group kesto-hero__title"><!-- wp:heading {"level":1,"className":"kesto-display kesto-kinetic kesto-hero__headline"} -->
+<h1 class="wp-block-heading kesto-display kesto-kinetic kesto-hero__headline">Good food. Great mood.</h1>
 <!-- /wp:heading -->
 
 <!-- wp:kesto/arrow {"variant":"scribble","color":"mango","className":"kesto-hero__underline"} /--></div>
@@ -67,9 +67,9 @@ $pouch = static function ( string $key, string $class, string $alt ) {
 <!-- wp:group {"className":"kesto-hero__media","layout":{"type":"default"}} -->
 <div class="wp-block-group kesto-hero__media"><!-- wp:kesto/picture <?php echo wp_json_encode( $photo ); ?> /-->
 
-<!-- wp:kesto/picture <?php echo $pouch( 'original', 'kesto-hero__pouch kesto-hero__pouch--a kesto-depth', __( 'KESTO Original Biltong pouch', 'kesto' ) ); ?> /-->
+<!-- wp:kesto/picture <?php echo $pouch( 'original', 'kesto-hero__pouch kesto-hero__pouch--a kesto-tilt', __( 'KESTO Original Biltong pouch', 'kesto' ) ); ?> /-->
 
-<!-- wp:kesto/picture <?php echo $pouch( 'chilli', 'kesto-hero__pouch kesto-hero__pouch--b kesto-depth', __( 'KESTO Chilli Biltong pouch', 'kesto' ) ); ?> /-->
+<!-- wp:kesto/picture <?php echo $pouch( 'chilli', 'kesto-hero__pouch kesto-hero__pouch--b kesto-tilt', __( 'KESTO Chilli Biltong pouch', 'kesto' ) ); ?> /-->
 
 <!-- wp:paragraph {"className":"kesto-hero__note"} -->
 <p class="kesto-hero__note">Pass it round!</p>
